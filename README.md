@@ -7,7 +7,8 @@ Idees:
   - Reviews de pelis
   - Botiga Online
   - App Mobil
-  - 
+  - Infojobs (Programadores)
+  - Portal Web Programadors (blogs, forum, chat)
   
 Llenguatges / Frameworks:
   - HTML5
@@ -17,4 +18,3 @@ Llenguatges / Frameworks:
   - JQUERY
   - ANGULAR 2+
   - BOOTSTRAP
-  - 
