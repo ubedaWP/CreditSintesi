@@ -18,3 +18,4 @@ Llenguatges / Frameworks:
   - JQUERY
   - ANGULAR 2+
   - BOOTSTRAP
+  - IONIC
