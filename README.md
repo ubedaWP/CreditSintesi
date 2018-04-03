@@ -9,6 +9,8 @@ Idees:
   - App Mobil
   - Infojobs (Programadores)
   - Portal Web Programadors (blogs, forum, chat)
+  - Aplicació musical amb instruments
+  
   
 Llenguatges / Frameworks:
   - HTML5
