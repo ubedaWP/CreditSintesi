@@ -10,6 +10,8 @@ Idees:
   - Infojobs (Programadores)
   - Portal Web Programadors (blogs, forum, chat)
   - Aplicació musical amb instruments
+  - App mobil rutines d'esport
+  - Quiés es Quién? App Mobil
   
   
 Llenguatges / Frameworks:
