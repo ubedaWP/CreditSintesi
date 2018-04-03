@@ -19,3 +19,4 @@ Llenguatges / Frameworks:
   - ANGULAR 2+
   - BOOTSTRAP
   - IONIC
+  - TYPESCRIPT
