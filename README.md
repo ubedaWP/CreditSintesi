@@ -2,12 +2,14 @@
 Credit Sintesi DAW 2017/18
 
 
-Idees:
-  - Agenda Online / WebApp per planning de tasques
-  - Reviews de pelis
-  - Botiga Online
-  - App mobil rutines d'esport
-  - Pagina Web/Forum d'un Grup de Jugadors (d'un Joc)
+Pluja d'idees:
+
+  - App mobil rutines d'esport - ✓
+  - Pagina Web/Forum d'un Grup de Jugadors (d'un Joc) - ✓
+  - Pagina Web d'una Organització - ✓
+  - Reviews de pelis - X
+  - Botiga Online - X
+  - Agenda Online / WebApp per planning de tasques - X
   - Aplicació musical amb instruments - X
   - Quiés es Quién? App Mobil - X
   - App Mobil - X
