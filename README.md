@@ -6,14 +6,13 @@ Idees:
   - Agenda Online / WebApp per planning de tasques
   - Reviews de pelis
   - Botiga Online
-  - App Mobil
-  - Infojobs (Programadores)
-  - Portal Web Programadors (blogs, forum, chat)
-  - Aplicació musical amb instruments
   - App mobil rutines d'esport
-  - Quiés es Quién? App Mobil
-  - Pagina Web d'un Grup de Jugadors (d'un Joc)
-  
+  - Pagina Web/Forum d'un Grup de Jugadors (d'un Joc)
+  - Aplicació musical amb instruments - X
+  - Quiés es Quién? App Mobil - X
+  - App Mobil - X
+  - Infojobs (Programadores) - X
+  - Portal Web Programadors (blogs, forum, chat) - X
   
 Llenguatges / Frameworks:
   - HTML5
