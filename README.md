@@ -12,6 +12,7 @@ Idees:
   - Aplicació musical amb instruments
   - App mobil rutines d'esport
   - Quiés es Quién? App Mobil
+  - Pagina Web d'un Grup de Jugadors (d'un Joc)
   
   
 Llenguatges / Frameworks:
