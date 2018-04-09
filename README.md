@@ -4,9 +4,9 @@ Credit Sintesi DAW 2017/18
 
 Pluja d'idees:
 
-  - App mobil rutines d'esport - ✓
-  - Pagina Web/Forum d'un Grup de Jugadors (d'un Joc) - ✓
-  - Pagina Web d'una Organització - ✓
+  - App mobil rutines d'esport - X
+  - Pagina Web/Forum d'un Grup de Jugadors (d'un Joc) - X
+  - Pagina Web d'una Organització - THE CHOSEN 1 💪
   - Reviews de pelis - X
   - Botiga Online - X
   - Agenda Online / WebApp per planning de tasques - X
