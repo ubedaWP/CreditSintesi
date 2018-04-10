@@ -6,7 +6,7 @@ Pluja d'idees:
 
   - App mobil rutines d'esport - X
   - Pagina Web/Forum d'un Grup de Jugadors (d'un Joc) - X
-  - Pagina Web d'una Organització - THE CHOSEN 1 💪
+  - Pagina Web d'una Organització/Producte - THE CHOSEN 1 💪
   - Reviews de pelis - X
   - Botiga Online - X
   - Agenda Online / WebApp per planning de tasques - X
@@ -26,3 +26,12 @@ Llenguatges / Frameworks:
   - BOOTSTRAP
   - IONIC
   - TYPESCRIPT
+
+
+
+-------------------------------------------
+-------------------------------------------
+
+
+
+<b>IDEA FINAL</b>
