@@ -34,4 +34,33 @@ Llenguatges / Frameworks:
 
 
 
-<b>IDEA FINAL</b>
+<b>IDEA FINAL:</b> Pàgina Web d'un videojoc;
+
+Continguts de la Pàgina Web:
+
+  - Blog de Noticies
+  - Events de la Companyia del Joc i del mateix Joc
+  - Botiga amb 2 seccions (Secció de Merchandising, figures, etc. I Secció de Botiga per a coses del Joc)
+  - Pàgina Media Web (Vídeos i Imatges)
+  - Registre i Login per a usuaris
+  
+  - Possibles ampliacions de la pàgina web en cas de tenir temps suficient:
+    - Pàgina perfil de l'usuari
+    - Fòrum
+    - Blog de Noticies alimentades per RSS
+    - Afegir productes a la Botiga desde una interfcie per a Admins
+    - Cartera virtual per a l'usuari a la Botiga
+    - Pàgina amb Vídeos en directe per jugadors del Joc
+    - Pàgina d'estadstiques del Joc.
+
+
+Eines a Utilitzar:
+  
+  - HTML5
+  - CSS
+  - TYPESCRIPT
+  - MYSQL (PhpMyAdmin)
+  - ANGULAR(Frontend) I LARAVEL(Backend)
+
+-------------------------------------------
+-------------------------------------------
