@@ -16,7 +16,7 @@ Pluja d'idees:
   - Infojobs (Programadores) - X
   - Portal Web Programadors (blogs, forum, chat) - X
   
-Llenguatges / Frameworks:
+Pluja d'idees de Llenguatges / Frameworks:
   - HTML5
   - CSS
   - JAVASCRIPT
