@@ -16,7 +16,7 @@ Pluja d'idees:
   - Infojobs (Programadores) - X
   - Portal Web Programadors (blogs, forum, chat) - X
   
-Llenguatges / Frameworks:
+Pluja d'idees de Llenguatges / Frameworks:
   - HTML5
   - CSS
   - JAVASCRIPT
@@ -38,11 +38,11 @@ Llenguatges / Frameworks:
 
 Continguts de la Pàgina Web:
 
-  - Blog de Noticies
-  - Events de la Companyia del Joc i del mateix Joc
+  - Pàgina de Noticies relacionades amb el producte i la companyia d'aquest.
   - Botiga amb 2 seccions (Secció de Merchandising, figures, etc. I Secció de Botiga per a coses del Joc)
   - Pàgina Media Web (Vídeos i Imatges)
   - Registre i Login per a usuaris
+  - Part Administrativa (només accessible per Administradors) -> Varies pàgines per pujar productes, noticies, media.
   
   - Possibles ampliacions de la pàgina web en cas de tenir temps suficient:
     - Pàgina perfil de l'usuari
