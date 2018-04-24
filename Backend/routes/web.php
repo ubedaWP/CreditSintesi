@@ -14,6 +14,9 @@
 Route::get('/', function () {
     return view('welcome');
 });
-Route::get('/loco', function(){
-    return view('prova');
+Route::get('/ie', function () {
+    return 'Hello World';
+});
+Route::group(['middleware'=>'cors'], function(){
+    // Route::get('/user', 'UserController@show');
 });
