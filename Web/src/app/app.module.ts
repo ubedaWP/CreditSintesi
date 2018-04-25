@@ -5,7 +5,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { AppComponent } from './app.component';
 import { NoticiesComponent } from './pages/noticies/noticies.component';
-import { LoginComponent } from './pages/login/login.component';
+import { LoginComponent, DialogOverviewExampleDialog } from './pages/login/login.component';
 import { RegisterComponent } from './pages/register/register.component';
 import { BotigaComponent } from './pages/botiga/botiga.component';
 import { EventsComponent } from './pages/noticies/events/events.component';
@@ -101,6 +101,6 @@ const materialModules = [
     
   ],
   bootstrap: [AppComponent],
-  entryComponents:[MatSnackBarContainer]
+  entryComponents:[DialogOverviewExampleDialog]
 })
 export class AppModule { }
