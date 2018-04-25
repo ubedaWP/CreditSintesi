@@ -18,5 +18,5 @@ Route::get('/ie', function () {
     return 'Hello World';
 });
 Route::group(['middleware'=>'cors'], function(){
-    // Route::get('/user', 'UserController@show');
+    Route::get('/usersRaw', 'UserController@getUsers');
 });

@@ -20,4 +20,8 @@ class UserController extends Controller
     //     $data=DB::select('select * from prova1');
     //     return $data;
     // }
+    public function getUsers(Request $request){
+        $data=DB::select('select * from USUARIS');
+        return $data;
+    }
 }

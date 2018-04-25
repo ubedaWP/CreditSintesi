@@ -5,6 +5,7 @@ import { Observable } from 'rxjs/Observable';
 import { TopNavbarComponent } from './pages/top-navbar/top-navbar.component';
 import { PublicService } from './services/public.service';
 import { DialogsService } from './services/dialogs.service';
+import { GetsService } from './services/gets.service';
 import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
 
 @Component({
@@ -16,23 +17,26 @@ import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
 export class AppComponent implements OnInit{
 
   constructor( private dataService : DataService, private publicService: PublicService,
-  private dialogService: DialogsService){
+  private dialogService: DialogsService, private getsService: GetsService){
 
     this.isOn = this.publicService.getIsOn();
   }
-  private title = 'app';
-  llistaLaPera;
+  users;
+  onUser: User;
   private isOn;
   ngOnInit(){
       
-  //  const llistaLaPera = this.dataService.getUsers().subscribe(
-  //     data=>{
-  //       this.llistaLaPera = data;
-  //       console.log(this.llistaLaPera);
-  //     },
-  //     error=>{
-  //       console.log("");
-  //     }
-  //   );
+    this.getAllUsers();
+  }
+
+  getAllUsers(){
+    this.getsService.getUsersRaw().subscribe(
+      data=>{
+        this.users = data;
+      },
+      error=>{
+        console.log(error);
+      }
+    )
   }
 }
