@@ -10,7 +10,5 @@ export class DataService {
   public provaLlista;
   public baseIP = 'http://localhost:8000';
   public webIP = 'http://localhost:4200';
-  // getUsers(){
-  //     return this.httpClient.get(this.baseIP + "/user");
-  // }
+  
 }
