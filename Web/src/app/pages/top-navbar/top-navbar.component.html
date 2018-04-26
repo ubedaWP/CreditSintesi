@@ -18,8 +18,17 @@
                 <a class="nav-link" [routerLink]="['/shop']"><button mat-button class="hoverable">BOTIGA</button></a>
             </li>        
         </ul>
-        <span class="navbar-text white-text">
-            <a class="nav-link" *ngIf="isOn"><i class="zmdi zmdi-account-o"></i></a>
+        <span class="navbar-text white-text" style="position: relative; margin-left:50%;" *ngIf="isOn">
+            <a class="nav-link" ><img class="avatar" src='../../../assets/avatars/{{avatar}}'></a>
+        </span>
+        <span class="navbar-text white-text" style="margin-right: 2%;" *ngIf="isOn">
+            <div class="btn-group" dropdown >
+                <button dropdownToggle type="button" class="btn btn-primary dropdown-toggle waves-light" mdbWavesEffect>
+                </button>
+                <div class="dropdown-menu dropdown-primary">
+                    <a class="dropdown-item" (click)="Logout()">LOGOUT</a>
+                </div>
+            </div>
         </span>
         <span class="navbar-text white-text">
             <a class="nav-link" *ngIf="!isOn"><button mat-button class="login hoverable" (click)="Loginform.show()">LOGIN</button></a>
@@ -60,13 +69,13 @@
                 </div>
 
                 <div class="text-center mt-2">
-                    <button class="btn btn-info waves-light" mdbWavesEffect (click)="getAllUsers()">Entra<i class="fa fa-sign-in ml-1"></i></button>
+                    <button class="btn btn-info waves-light" mdbWavesEffect (click)="Login()">Entra<i class="fa fa-sign-in ml-1"></i></button>
                 </div>
 
             </div>
             <div class="modal-footer">
                 <div class="options text-center text-md-right mt-1">
-                    <p>Encara no tens un compte? <a [routerLink]="['/register']" (click)="Loginform.hide()">Registre't!</a></p>
+                    <p>Encara no tens un compte? <a [routerLink]="['/register']" (click)="Loginform.hide()">Registra't!</a></p>
                 </div>
                 <button type="button" class="btn btn-outline-info ml-auto" data-dismiss="modal" (click)="Loginform.hide()" mdbWavesEffect>Close</button>
             </div>

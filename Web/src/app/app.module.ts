@@ -23,6 +23,7 @@ import { PublicService } from './services/public.service';
 import { DialogsService } from './services/dialogs.service';
 import { GetsService } from './services/gets.service';
 import { CookieService } from 'angular2-cookie/services/cookies.service';
+import { SweetAlertService } from 'angular-sweetalert-service';
 
 //COMPONENTS
 import { AppComponent } from './app.component';
@@ -95,6 +96,7 @@ const materialModules = [
     PublicService,
     DialogsService,
     CookieService,
+    SweetAlertService,
     HttpClient,
     MatSnackBar,
     Overlay,

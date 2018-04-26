@@ -1,3 +1,15 @@
-.login{
-    background-color:#ffbb33;
+.navbar{
+    background-image:url('../../../assets/navbarBackground.jpg');
+    height: 20%;
+}
+.btn-group{
+    background-color: transparent;
+}
+.avatar{
+    height: 60%;
+    width: 60%;
+}
+.mat-button:hover{
+    color:black;
+    background-color:white;
 }
