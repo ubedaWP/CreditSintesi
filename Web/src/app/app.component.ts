@@ -25,18 +25,5 @@ export class AppComponent implements OnInit{
   onUser: User;
   private isOn;
   ngOnInit(){
-      
-    this.getAllUsers();
-  }
-
-  getAllUsers(){
-    this.getsService.getUsersRaw().subscribe(
-      data=>{
-        this.users = data;
-      },
-      error=>{
-        console.log(error);
-      }
-    )
   }
 }

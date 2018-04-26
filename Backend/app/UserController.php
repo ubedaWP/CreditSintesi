@@ -24,4 +24,9 @@ class UserController extends Controller
         $data=DB::select('select * from USUARIS');
         return $data;
     }
+
+    public function getUser(Request $request, $user, $password){
+        $data=DB::select('select * from USUARIS where USUARIS.Usuari = ? and USUARIS.Contrasenya = ?', [$user = "Admin", $password="1234"]);
+        return $data;
+    }
 }

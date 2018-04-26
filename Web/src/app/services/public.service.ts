@@ -1,27 +1,38 @@
 import { Injectable } from '@angular/core';
 import { DataService } from './data-service.service';
+import { CookieService } from 'angular2-cookie/core';
 
 @Injectable()
-export class PublicService {
+export class PublicService{
 
-  constructor( private dataService: DataService ) { 
-    
+  constructor( private dataService: DataService, private _cookieService:CookieService) { 
+    this._cookieService.put('isAdmin', 'false');
+    this._cookieService.put('isOn', 'false');
+    this._cookieService.put('user', '');
   }
 
-  public user: string;
-  public isAdmin: boolean;
-  public isOn: boolean = false;
+  setIsOn(isOn: string){
+    this._cookieService.put('isOn',isOn) ;
+  }
 
   getIsOn(){
-    return this.isOn;
+    return this._cookieService.get('isOn');
+  }
+
+  setIsAdmin(isAdmin: string){
+    this._cookieService.put('isAdmin', isAdmin);
   }
 
   getIsAdmin(){
-    return this.isAdmin;
+    return this._cookieService.get('isAdmin');
+  }
+
+  setUserName(user: string){
+    this._cookieService.put('user', user);
   }
 
   getUserName(){
-    return this.user;
+    return this._cookieService.get('user');
   }
 
 }

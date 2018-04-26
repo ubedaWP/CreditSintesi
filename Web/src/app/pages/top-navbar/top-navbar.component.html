@@ -22,7 +22,7 @@
             <a class="nav-link" *ngIf="isOn"><i class="zmdi zmdi-account-o"></i></a>
         </span>
         <span class="navbar-text white-text">
-            <a class="nav-link" *ngIf="!isOn"><button mat-button class="login hoverable">LOGIN</button></a>
+            <a class="nav-link" *ngIf="!isOn"><button mat-button class="login hoverable" (click)="Loginform.show()">LOGIN</button></a>
         </span>
         <span class="navbar-text white-text">
             <a class="nav-link" [routerLink]="['/register']" *ngIf="!isOn"><button mat-button class="hoverable">REGISTER</button>
@@ -31,6 +31,49 @@
     </div>
 </nav>
 
+
+<!-- MODALS -->
+<!--Modal: Login Form-->
+<div mdbModal #Loginform="mdb-modal" class="modal fade" id="modalLogin" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog cascading-modal" role="document">
+        <!--Content-->
+        <div class="modal-content">
+
+            <div class="modal-header light-blue darken-3 white-text">
+                <h4 class="title"><i class="fa fa-user"></i>LOGIN</h4>
+                <button type="button" class="close waves-effect waves-light" data-dismiss="modal" aria-label="Close" (click)="Loginform.hide()">
+                    <span aria-hidden="true">×</span>
+                </button>
+            </div>
+
+            <div class="modal-body">
+                <div class="md-form form-sm">
+                    <i class="fa fa-user prefix"></i>
+                    <input (keyup)="getUserFormData($event)" mdbInputDirective type="text" id="user" class="form-control">
+                    <label for="form30">Nom d'usuari</label>
+                </div>
+                <div class="md-form form-sm">&nbsp;</div>
+                <div class="md-form form-sm">
+                    <i class="fa fa-lock prefix"></i>
+                    <input (keyup)="getPasswordFormData($event)" mdbInputDirective type="password" id="password" class="form-control">
+                    <label for="form31">Contrasenya</label>
+                </div>
+
+                <div class="text-center mt-2">
+                    <button class="btn btn-info waves-light" mdbWavesEffect (click)="getAllUsers()">Entra<i class="fa fa-sign-in ml-1"></i></button>
+                </div>
+
+            </div>
+            <div class="modal-footer">
+                <div class="options text-center text-md-right mt-1">
+                    <p>Encara no tens un compte? <a [routerLink]="['/register']" (click)="Loginform.hide()">Registre't!</a></p>
+                </div>
+                <button type="button" class="btn btn-outline-info ml-auto" data-dismiss="modal" (click)="Loginform.hide()" mdbWavesEffect>Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+                
 <!-- Example de Dropdown -->
 <!-- <div class="btn-group" dropdown>
     <button dropdownToggle type="button" class="btn btn-primary dropdown-toggle waves-light" mdbWavesEffect>

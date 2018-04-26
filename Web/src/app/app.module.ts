@@ -2,7 +2,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
 import { NgModule } from '@angular/core';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule, FormBuilder, NgControl } from '@angular/forms';
 import { MDBBootstrapModule, ModalModule, ModalDirective } from 'angular-bootstrap-md';
 import { Routes, RouterModule } from '@angular/router';
 import { MatButtonModule, MatCheckboxModule, MatSnackBarContainer, MatIconModule, MatCardModule, 
@@ -22,6 +22,7 @@ import { DataService } from './services/data-service.service';
 import { PublicService } from './services/public.service';
 import { DialogsService } from './services/dialogs.service';
 import { GetsService } from './services/gets.service';
+import { CookieService } from 'angular2-cookie/services/cookies.service';
 
 //COMPONENTS
 import { AppComponent } from './app.component';
@@ -93,6 +94,7 @@ const materialModules = [
     DataService,
     PublicService,
     DialogsService,
+    CookieService,
     HttpClient,
     MatSnackBar,
     Overlay,
@@ -105,7 +107,8 @@ const materialModules = [
     BreakpointObserver,
     MediaMatcher,
     {provide: MAT_LABEL_GLOBAL_OPTIONS, useValue: {float: 'auto'}},
-    GetsService
+    GetsService,
+    FormBuilder
   ],
   bootstrap: [AppComponent],
 })

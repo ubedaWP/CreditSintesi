@@ -11,4 +11,8 @@ export class GetsService {
     return this.httpClient.get(this.dataService.baseIP + "/usersRaw")
   }
 
+  getLogin(user: string, password: string){
+    return this.httpClient.get(this.dataService.baseIP + "/user/user=" + user + "&password=" + password);
+  }
+
 }
