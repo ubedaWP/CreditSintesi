@@ -5,7 +5,7 @@ import { PublicService } from '../../services/public.service';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { GetsService } from '../../services/gets.service';
 import { THIS_EXPR } from '@angular/compiler/src/output/output_ast';
-import { SweetAlertService } from 'angular-sweetalert-service';
+import { SwalComponent } from '@toverux/ngx-sweetalert2';
 
 @Component({
   selector: 'app-top-navbar',
@@ -17,7 +17,7 @@ export class TopNavbarComponent implements OnInit {
   loginForm;
   constructor(private dataService: DataService, private publicService: PublicService, 
   private fb: FormBuilder, private getsService: GetsService, private router: Router,
-  private alertService: SweetAlertService) {
+  ) {
 
   }
   
@@ -27,13 +27,17 @@ export class TopNavbarComponent implements OnInit {
   private isOn: boolean;
   private isAdmin: boolean;
   private avatar: string;
+  @ViewChild('ErrorLogin') private errorLogin: SwalComponent;
 
   ngOnInit() {
     this.setIsOn();
     this.setIsAdmin();
     this.setUserName();
     this.setAvatar();
+    
   }
+
+  
 
   setIsOn(){
     if (this.publicService.getIsOn() == 'true'){
@@ -82,26 +86,29 @@ export class TopNavbarComponent implements OnInit {
   Login(){
     this.getsService.getLogin(this.user, this.password).subscribe(
       data=>{
-        this.user = data[0].Usuari;
-        this.password = data[0].Contrasenya;
-        this.publicService.setIsOn('true');
-        this.publicService.setUserName(this.user);
-        this.publicService.setAvatar(data[0].Avatar);
-        this.avatar = this.publicService.getAvatar();
-        console.log(this.avatar);
-        this.setIsOn();
-        if (data[0].Admin == "1") {
-          this.publicService.setIsAdmin('true');
-          this.setIsAdmin();
+        if (data != null){
+          this.user = data[0].Usuari;
+          this.password = data[0].Contrasenya;
+          this.publicService.setIsOn('true');
+          this.publicService.setUserName(this.user);
+          this.publicService.setAvatar(data[0].Avatar);
+          this.avatar = this.publicService.getAvatar();
+          this.setIsOn();
+          if (data[0].Admin == "1") {
+            this.publicService.setIsAdmin('true');
+            this.setIsAdmin();
+          }
+          else if(data[0].Admin == "0"){
+            this.publicService.setIsAdmin('false');
+            this.setIsAdmin();
+          }
+          location.reload();
+          }
+        else{
+          this.errorLogin.show();
         }
-        else if(data[0].Admin == "0"){
-          this.publicService.setIsAdmin('false');
-          this.setIsAdmin();
-        }
-        location.reload();
       },
       error=>{
-        
         console.log(error);
       }
     )

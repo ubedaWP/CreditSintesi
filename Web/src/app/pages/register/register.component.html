@@ -1,3 +1,47 @@
-<p>
-  register works!
-</p>
+<div class="container">
+  <div class="row">
+    <div class="col-sm-1">&nbsp;</div>
+    <div class="col-sm-10 titolRegistre">
+     <h1>REGISTRE D'USUARI</h1>
+     <br><br><br>
+     <mat-form-field>
+      <input matInput placeholder="Nom d'Usuari" [formControl]="user" required>
+      <mat-error *ngIf="user.invalid">{{getErrorMessageUser()}}</mat-error>
+    </mat-form-field>
+    <mat-form-field>
+      <input matInput placeholder="Contrasenya" [formControl]="password1" [type]="hide ? 'password' : 'text'" required>
+      <mat-icon matSuffix (click)="hide = !hide">{{hide ? 'visibility' : 'visibility_off'}}</mat-icon>
+      <mat-error *ngIf="password1.invalid">{{getErrorMessageUser()}}</mat-error>
+    </mat-form-field>
+    <mat-form-field>
+      <input matInput placeholder="Confirma la contrasenya" [formControl]="password2" [type]="hide1 ? 'password' : 'text'" required>
+      <mat-icon matSuffix (click)="hide1 = !hide1">{{hide1 ? 'visibility' : 'visibility_off'}}</mat-icon>
+      <mat-error *ngIf="password2.invalid">{{getErrorMessageUser()}}</mat-error>
+    </mat-form-field>
+    <mat-form-field>
+      <input matInput placeholder="Enter your email" [formControl]="email" required>
+      <mat-error *ngIf="email.invalid">{{getErrorMessageEmail()}}</mat-error>
+    </mat-form-field>
+    <mat-form-field>
+      <input matInput placeholder="Nom" [formControl]="name" required>
+      <mat-error *ngIf="name.invalid">{{getErrorMessageUser()}}</mat-error>
+    </mat-form-field>
+    <mat-form-field>
+      <input matInput [matDatepicker]="picker" placeholder="Data de Naixament" [formControl]="age">
+      <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+      <mat-datepicker #picker></mat-datepicker>
+      <mat-error *ngIf="age.invalid">{{getErrorMessageUser()}}</mat-error>
+    </mat-form-field>       
+    <mat-form-field>
+      <input matInput placeholder="NIF" [formControl]="nif" required>
+      <mat-error *ngIf="nif.invalid">{{getErrorMessageUser()}}</mat-error>
+    </mat-form-field>
+    <br><br>
+    <button mat-button class="botoRegistre" (click)="getFormData()">REGISTRE'T</button><br><br>
+    </div>
+    <div class="col-sm-1">&nbsp;</div>
+  </div>
+  <div class="row">
+    &nbsp;
+  </div>
+</div>

@@ -27,6 +27,23 @@ class UserController extends Controller
 
     public function getUser(Request $request, $user, $password){
         $data=DB::select('select * from USUARIS where USUARIS.Usuari = ? and USUARIS.Contrasenya = ?', [$user, $password]);
-        return $data;
+        if (count($data) > 0) {
+            return $data;
+        }
+    }
+
+    public function addUser(Request $request, $form){
+        DB::table('USUARIS')->insert([
+            [
+            'Usuari'=>$form[0],
+            'Contrasenya'=>$form[1],
+            'Avatar'=>$form[2],
+            'Email'=>$form[3],
+            'Nom'=>$form[4],
+            'Edat'=>$form[5],
+            'Pais'=>$form[6],
+            'Nif'=>$form[7],
+            'Admin'=>$form[8]],
+        ]);
     }
 }

@@ -8,7 +8,7 @@ export class DataService {
   constructor(public httpClient: HttpClient) {
   }
   public provaLlista;
-  public baseIP = 'http://localhost:8000';
-  public webIP = 'http://localhost:4200';
+  public baseIP = 'http://localhost:8000/';
+  public webIP = 'http://localhost:4200/';
   
 }

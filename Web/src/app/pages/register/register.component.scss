@@ -1,0 +1,20 @@
+.titolRegistre{
+    margin-top: 8%; 
+    text-align: center;
+    border: 2px solid black;
+    border-radius: 10px;
+}
+h1{
+    margin-top: 5%;
+}
+.botoRegistre{
+    background-color: black;
+    color:white;
+}
+.botoRegistre:hover{
+    background-color: white;
+    color:black;
+}
+mat-form-field{
+    width: 80%;
+}

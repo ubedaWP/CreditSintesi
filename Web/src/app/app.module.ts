@@ -10,12 +10,15 @@ import { MatButtonModule, MatCheckboxModule, MatSnackBarContainer, MatIconModule
   MatFormFieldModule,
   MatInputModule,
   MatTooltipModule,
-  MAT_LABEL_GLOBAL_OPTIONS} from '@angular/material';
+  MAT_LABEL_GLOBAL_OPTIONS,
+  MatDatepicker,
+  MatNativeDateModule,
+  MatDatepickerModule} from '@angular/material';
 import { MatSnackBar, MatMenuModule, MatToolbarModule } from '@angular/material';
 import { Overlay, ScrollStrategyOptions, ScrollDispatcher, ViewportRuler, OverlayContainer, OverlayPositionBuilder, OverlayConfig, OverlayKeyboardDispatcher, OverlayModule } from '@angular/cdk/overlay';
 import { BreakpointObserver, MediaMatcher } from '@angular/cdk/layout';
 import { MatDialogModule } from '@angular/material/dialog';
-
+import { SweetAlert2Module, SwalComponent } from '@toverux/ngx-sweetalert2';
 
 //SERVICES
 import { DataService } from './services/data-service.service';
@@ -23,7 +26,6 @@ import { PublicService } from './services/public.service';
 import { DialogsService } from './services/dialogs.service';
 import { GetsService } from './services/gets.service';
 import { CookieService } from 'angular2-cookie/services/cookies.service';
-import { SweetAlertService } from 'angular-sweetalert-service';
 
 //COMPONENTS
 import { AppComponent } from './app.component';
@@ -61,6 +63,8 @@ const materialModules = [
   MatTooltipModule,
   MatCheckboxModule,
   MatDialogModule,
+  MatDatepickerModule,
+  MatNativeDateModule
 ];
 
 
@@ -88,7 +92,14 @@ const materialModules = [
     OverlayModule,
     BrowserAnimationsModule,
     FormsModule,
-    materialModules
+    ReactiveFormsModule,
+    materialModules,
+    SweetAlert2Module.forRoot({
+      buttonsStyling: false,
+      customClass: 'modal-content',
+      confirmButtonClass: 'btn btn-primary',
+      cancelButtonClass: 'btn'
+  }),
     
   ],
   providers: [
@@ -96,7 +107,6 @@ const materialModules = [
     PublicService,
     DialogsService,
     CookieService,
-    SweetAlertService,
     HttpClient,
     MatSnackBar,
     Overlay,
@@ -110,7 +120,8 @@ const materialModules = [
     MediaMatcher,
     {provide: MAT_LABEL_GLOBAL_OPTIONS, useValue: {float: 'auto'}},
     GetsService,
-    FormBuilder
+    FormBuilder,
+    SwalComponent
   ],
   bootstrap: [AppComponent],
 })

@@ -40,7 +40,6 @@
     </div>
 </nav>
 
-
 <!-- MODALS -->
 <!--Modal: Login Form-->
 <div mdbModal #Loginform="mdb-modal" class="modal fade" id="modalLogin" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
@@ -82,7 +81,7 @@
         </div>
     </div>
 </div>
-                
+<swal #ErrorLogin title="Error" text="L'usuari o la contrasenya són incorrectes" type="error"></swal>              
 <!-- Example de Dropdown -->
 <!-- <div class="btn-group" dropdown>
     <button dropdownToggle type="button" class="btn btn-primary dropdown-toggle waves-light" mdbWavesEffect>
