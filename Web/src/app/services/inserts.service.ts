@@ -9,6 +9,11 @@ export class InsertsService {
 
 
   insertUser(data){
-    return this.httpClient.get(this.dataService.baseIP + "registreProva/data=" + data);
+    const url = this.dataService.baseIP + "registreProva/user=" + data[0].value + "&password=" 
+    + data[1].value + "&email=" + data[2].value + "&nom=" + data[3].value + "&dataNaixament=" 
+    + data[4] + "&provincia=" + data[5].value + "&nif=" + data[6].value + "&avatar=" 
+    + data[7] + "&admin=" + data[8]
+    console.log(url);
+    return this.httpClient.get(url).subscribe();
   }
 }

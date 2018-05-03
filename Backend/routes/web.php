@@ -20,5 +20,6 @@ Route::get('/ie', function () {
 Route::group(['middleware'=>'cors'], function(){
     Route::get('/usersRaw', 'UserController@getUsers');
     Route::get('/user/user={user}&password={password}', 'UserController@getUser');
-    Route::get('/registreProva/data={form}', 'UserController@addUser');
+    Route::get('/registreProva/user={user}&password={password}&email={email}&nom={nom}&dataNaixament={dataNaixament}&provincia={provincia}&nif={nif}&avatar={avatar}&admin={admin}', 'UserController@addUser');
+    Route::get('/user={user}', 'UserController@userExists');
 });

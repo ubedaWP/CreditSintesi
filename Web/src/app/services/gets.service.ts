@@ -8,11 +8,15 @@ export class GetsService {
   constructor(public dataService: DataService, private httpClient: HttpClient) { }
 
   getUsersRaw(){
-    return this.httpClient.get(this.dataService.baseIP + "usersRaw")
+    return this.httpClient.get(this.dataService.baseIP + "usersRaw");
   }
 
   getLogin(user: string, password: string){
     return this.httpClient.get(this.dataService.baseIP + "user/user=" + user + "&password=" + password);
+  }
+
+  getAuthLogin(user: string){
+    return this.httpClient.get(this.dataService.baseIP + "user=" + user);
   }
 
 }

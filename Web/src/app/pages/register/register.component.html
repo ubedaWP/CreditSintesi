@@ -31,6 +31,14 @@
       <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
       <mat-datepicker #picker></mat-datepicker>
       <mat-error *ngIf="age.invalid">{{getErrorMessageUser()}}</mat-error>
+    </mat-form-field>
+    <mat-form-field>
+       <mat-select placeholder="Província de Residència" [formControl]="state">
+        <mat-option *ngFor="let state of states" [value]="state">
+          {{ state }}
+        </mat-option>
+      </mat-select>
+      <mat-error *ngIf="age.invalid">{{getErrorMessageUser()}}</mat-error>
     </mat-form-field>       
     <mat-form-field>
       <input matInput placeholder="NIF" [formControl]="nif" required>
@@ -45,3 +53,12 @@
     &nbsp;
   </div>
 </div>
+
+<!-- MODALS -->
+<swal #ErrorRegistre title="Error" text="Alguns dels camps és incorrecte o està buit" type="error"></swal>
+<swal #ErrorPasswords title="Error" text="Les contrasenys son diferents, han de ser iguals" type="error"></swal>
+<swal #ErrorPasswordsLongitud title="Error Contrasenya" text="Una de les contrasenyes no té com a mínim 8 caràcters" type="error"></swal>
+<swal #ErrorNif title="Error NIF" text="El NIF ha de tenir com a mínim 9 caràcters, incloent la lletra" type="error"></swal>
+<swal #ErrorUserExists title="Error Usuari" text="Ja existeix un usuari amb aquest nom" type="error"></swal>
+<swal #ErrorEmailExists title="Error Email" text="Ja hi ha un USUARI registrat amb aquest EMAIL" type="error"></swal>
+<swal #RegistreValid title="Perfecte!" text="Felicitats! T'has registrat a la pàgina amb èxit" type="success"></swal>

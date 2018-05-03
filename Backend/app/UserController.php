@@ -32,18 +32,25 @@ class UserController extends Controller
         }
     }
 
-    public function addUser(Request $request, $form){
+    public function userExists(Request $request, $user){
+        $data=DB::select('select * from USUARIS where USUARIS.Usuari = ?', [$user]);
+        if (count($data) > 0){
+            return $data;
+        }
+    }
+
+    public function addUser(Request $request, $user, $password, $email, $nom, $edat, $provincia, $nif, $avatar, $admin){
         DB::table('USUARIS')->insert([
             [
-            'Usuari'=>$form[0],
-            'Contrasenya'=>$form[1],
-            'Avatar'=>$form[2],
-            'Email'=>$form[3],
-            'Nom'=>$form[4],
-            'Edat'=>$form[5],
-            'Pais'=>$form[6],
-            'Nif'=>$form[7],
-            'Admin'=>$form[8]],
+            'Usuari'=>$user,
+            'Contrasenya'=>$password,
+            'Email'=>$email,
+            'Nom'=>$nom,
+            'Edat'=>$edat,
+            'Provincia'=>$provincia,
+            'Nif'=>$nif,
+            'Avatar'=>$avatar,
+            'Admin'=>$admin]
         ]);
     }
 }

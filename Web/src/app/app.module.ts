@@ -13,6 +13,7 @@ import { MatButtonModule, MatCheckboxModule, MatSnackBarContainer, MatIconModule
   MAT_LABEL_GLOBAL_OPTIONS,
   MatDatepicker,
   MatNativeDateModule,
+  MatSelectModule,
   MatDatepickerModule} from '@angular/material';
 import { MatSnackBar, MatMenuModule, MatToolbarModule } from '@angular/material';
 import { Overlay, ScrollStrategyOptions, ScrollDispatcher, ViewportRuler, OverlayContainer, OverlayPositionBuilder, OverlayConfig, OverlayKeyboardDispatcher, OverlayModule } from '@angular/cdk/overlay';
@@ -26,6 +27,7 @@ import { PublicService } from './services/public.service';
 import { DialogsService } from './services/dialogs.service';
 import { GetsService } from './services/gets.service';
 import { CookieService } from 'angular2-cookie/services/cookies.service';
+import { InsertsService } from './services/inserts.service';
 
 //COMPONENTS
 import { AppComponent } from './app.component';
@@ -64,7 +66,8 @@ const materialModules = [
   MatCheckboxModule,
   MatDialogModule,
   MatDatepickerModule,
-  MatNativeDateModule
+  MatNativeDateModule,
+  MatSelectModule
 ];
 
 
@@ -107,6 +110,7 @@ const materialModules = [
     PublicService,
     DialogsService,
     CookieService,
+    InsertsService,
     HttpClient,
     MatSnackBar,
     Overlay,
