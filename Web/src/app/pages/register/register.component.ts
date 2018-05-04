@@ -1,5 +1,6 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { FormControl, Validators, MinLengthValidator } from '@angular/forms';
+import { RouterModule, Routes, Router } from '@angular/router';
 import { InsertsService } from '../../services/inserts.service';
 import { GetsService } from '../../services/gets.service';
 import { THIS_EXPR } from '@angular/compiler/src/output/output_ast';
@@ -39,14 +40,14 @@ export class RegisterComponent implements OnInit {
   @ViewChild('ErrorUserExists') private userDuplicated: SwalComponent;
   @ViewChild('ErrorEmailExists') private emailDuplicated: SwalComponent;
 
-  constructor(private insertService: InsertsService, private getService: GetsService) { }
+  constructor(private insertService: InsertsService, private getService: GetsService, private router: Router) { }
 
   ngOnInit() {
     this.users = [];
     this.emails = [];
     this.getAllUsers();
-    console.log(this.users);
-    console.log(this.emails);
+    // console.log(this.users);
+    // console.log(this.emails);
   }
 
   getErrorMessageUser() {
@@ -126,6 +127,7 @@ export class RegisterComponent implements OnInit {
         this.state, this.nif, this.avatar, this.admin);
         this.trueRegistre.show();
         this.registerNewUser(this.formData);  
+        this.router.navigate(['/home']);
       } 
     }
   }

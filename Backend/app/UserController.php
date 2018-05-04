@@ -53,4 +53,39 @@ class UserController extends Controller
             'Admin'=>$admin]
         ]);
     }
+
+    public function getLastProductsDigital(Request $request){
+        $data=DB::select('select * from PRODUCTES_DIGITALS order by IDProd_Digital DESC');
+        if (count($data) > 0){
+            return $data;
+        }
+    }
+
+    public function getLastProductsFisic(Request $request){
+        $data=DB::select('select * from PRODUCTES_FISICS order by IDProd_Fisic DESC');
+        if (count($data) > 0){
+            return $data;
+        }
+    }
+
+    public function getProductsDigitals(Request $request){
+        $data=DB::select('select * from PRODUCTES_DIGITALS');
+        if (count($data) > 0){
+            return $data;
+        }
+    }
+
+    public function getProductsFisics(Request $request){
+        $data=DB::select('select * from PRODUCTES_FISICS');
+        if (count($data) > 0){
+            return $data;
+        }
+    }
+
+    public function getTags(Request $request){
+        $data=DB::select('select * from TAGS order by IDTag ASC');
+        if (count($data) > 0) {
+            return $data;
+        }
+    }
 }

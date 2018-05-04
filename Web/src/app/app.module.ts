@@ -1,6 +1,6 @@
 //MODULES
 import { BrowserModule } from '@angular/platform-browser';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule, FormBuilder, NgControl } from '@angular/forms';
 import { MDBBootstrapModule, ModalModule, ModalDirective } from 'angular-bootstrap-md';

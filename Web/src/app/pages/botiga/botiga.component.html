@@ -1,3 +1,93 @@
-<p>
-  botiga works!
-</p>
+<div class="container-fluid">
+  <h1>ÚLTIMES NOVETATS</h1> 
+  <mdb-carousel [isControls]="true" class="carousel slide carousel-fade" [animation]="'fade'">
+    <mdb-slide *ngFor="let product of lastProducts" >
+      <div class="view">
+        <img class="d-block w-100 imgSlider rounded" src="../../../assets/products/{{product.Imatge}}" alt="">
+        <div class="mask rgba-black-light waves-light" mdbWavesEffect></div>
+      </div>
+        <div class="carousel-caption">
+          <h3 class="h3-responsive">{{product.Producte}}</h3>
+        </div>
+    </mdb-slide>
+  </mdb-carousel>         
+</div>
+<div class="container">
+  <div class="row">
+    <div class="col-sm-12">
+      <h1>PRODUCTES</h1>
+      <div class="md-form">
+        <i class="fas fa-search prefix"></i>
+        <input type="text" id="form1" placeholder="Buscar per nom de Producte">
+        <label for="form1"></label>
+      </div> 
+    </div>    
+  </div>
+  <div class="row">
+    <div class="col-sm-2">
+      <div class="col-sm-12 caixaFiltres sticky-top">
+        <h3>Tipus de Producte</h3><br>
+        <ul>
+          <li><mat-checkbox>DIGITAL</mat-checkbox></li>
+          <li><mat-checkbox>FÍSIC</mat-checkbox></li>
+        </ul><br>
+        <h3>Tags</h3>
+        <ul>
+          <li *ngFor="let tag of tags"><mat-checkbox>{{tag.Tag}}</mat-checkbox></li>
+        </ul>
+      </div>
+    </div>
+    <div class="col-sm-1">&nbsp;</div>
+    <div class="col-sm-9">
+      <div class="row">
+        <div class="col-sm-12">
+          <h1 class="subProductes">FÍSICS</h1>           
+          <!--Card-->
+          <div *ngFor="let product of fisicalProducts" class="card">
+            <!--Card image-->
+            <div class="view hm-white-slight waves-light" mdbWavesEffect>
+              <img src="../../../assets/products/{{product.Imatge}}" class="img-fluid" alt="Card image with a tree in a middle of a lake.">
+              <a>
+                <div class="mask"></div>
+              </a>
+            </div>
+            <!--Card content-->
+            <div class="card-body">
+              <!--Title-->
+              <h4 class="card-title" style="text-align: center;">{{product.Producte}}</h4>
+              <!--Text-->
+              <p class="card-text" style="text-align: center;">{{product.Descripcio}}</p>
+              <p class="card-text">Preu: {{product.Preu}}&nbsp;<i class="fas fa-euro-sign"></i></p>
+            </div>
+          </div>
+          <!--/.Card-->
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-sm-12 subtitolProductes">
+          <h1 class="subProductes">DIGITALS</h1>
+          <!--Card-->
+          <div *ngFor="let product of digitalProducts" class="card">
+            <!--Card image-->
+            <div class="view hm-white-slight waves-light" mdbWavesEffect>
+              <img src="../../../assets/products/{{product.Imatge}}" class="img-fluid" alt="Card image with a tree in a middle of a lake.">
+              <a>
+                <div class="mask"></div>
+              </a>
+            </div>
+            <!--Card content-->
+            <div class="card-body">
+              <!--Title-->
+              <h4 class="card-title" style="text-align: center;">{{product.Producte}}</h4>
+              <!--Text-->
+              <p class="card-text" style="text-align: center;">{{product.Descripcio}}</p>
+              <p class="card-text">Preu: {{product.Preu}}&nbsp;<i class="fas fa-euro-sign"></i></p>
+            </div>
+          </div>
+          <!--/.Card-->
+        </div>
+      </div>
+    </div>
+  </div>
+</div>  
+

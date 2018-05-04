@@ -14,7 +14,6 @@ import { SwalComponent } from '@toverux/ngx-sweetalert2';
 })
 export class TopNavbarComponent implements OnInit {
 
-  loginForm;
   constructor(private dataService: DataService, private publicService: PublicService, 
   private fb: FormBuilder, private getsService: GetsService, private router: Router,
   ) {
@@ -28,6 +27,7 @@ export class TopNavbarComponent implements OnInit {
   private isAdmin: boolean;
   private avatar: string;
   @ViewChild('ErrorLogin') private errorLogin: SwalComponent;
+  @ViewChild('SuccessLogin') private successLogin: SwalComponent;
 
   ngOnInit() {
     this.setIsOn();
@@ -102,7 +102,8 @@ export class TopNavbarComponent implements OnInit {
             this.publicService.setIsAdmin('false');
             this.setIsAdmin();
           }
-          location.reload();
+          this.successLogin.show();
+          this.router.navigate(['/home']);
           }
         else{
           this.errorLogin.show();

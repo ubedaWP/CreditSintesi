@@ -16,19 +16,13 @@
             </li>
             <li class="nav-item">
                 <a class="nav-link" [routerLink]="['/shop']"><button mat-button class="hoverable">BOTIGA</button></a>
-            </li>        
+            </li>      
         </ul>
-        <span class="navbar-text white-text" style="position: relative; margin-left:50%;" *ngIf="isOn">
+        <span class="navbar-text white-text" *ngIf="isOn">
             <a class="nav-link" ><img class="avatar" src='../../../assets/avatars/{{avatar}}'></a>
         </span>
-        <span class="navbar-text white-text" style="margin-right: 2%;" *ngIf="isOn">
-            <div class="btn-group" dropdown >
-                <button dropdownToggle type="button" class="btn btn-primary dropdown-toggle waves-light" mdbWavesEffect>
-                </button>
-                <div class="dropdown-menu dropdown-primary">
-                    <a class="dropdown-item" (click)="Logout()">LOGOUT</a>
-                </div>
-            </div>
+        <span class="navbar-text white-text" style="margin-right: 5%;" *ngIf="isOn">
+            <a class="logoutIcon" (click)="Logout()"><i class="fas fa-sign-out-alt"></i></a>
         </span>
         <span class="navbar-text white-text">
             <a class="nav-link" *ngIf="!isOn"><button mat-button class="login hoverable" (click)="Loginform.show()">LOGIN</button></a>
@@ -68,7 +62,7 @@
                 </div>
 
                 <div class="text-center mt-2">
-                    <button class="btn btn-info waves-light" mdbWavesEffect (click)="Login()">Entra<i class="fa fa-sign-in ml-1"></i></button>
+                    <button class="btn btn-info waves-light" mdbWavesEffect (click)="Login(); Loginform.hide()">Entra<i class="fa fa-sign-in ml-1"></i></button>
                 </div>
 
             </div>
@@ -81,7 +75,8 @@
         </div>
     </div>
 </div>
-<swal #ErrorLogin title="Error" text="L'usuari o la contrasenya són incorrectes" type="error"></swal>               
+<swal #ErrorLogin title="Error" text="L'usuari o la contrasenya són incorrectes" type="error"></swal>
+<swal #SuccessLogin title="Perfecte!" text="Has entrat correctament!" type="success"></swal>               
 <!-- Example de Dropdown -->
 <!-- <div class="btn-group" dropdown>
     <button dropdownToggle type="button" class="btn btn-primary dropdown-toggle waves-light" mdbWavesEffect>
@@ -95,3 +90,5 @@
         <a class="dropdown-item" href="#">Separated link</a>
     </div>
 </div> -->
+
+<!-- MENUS -->

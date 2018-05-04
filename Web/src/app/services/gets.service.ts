@@ -19,4 +19,24 @@ export class GetsService {
     return this.httpClient.get(this.dataService.baseIP + "user=" + user);
   }
 
+  getLastDigitalProducts(){
+    return this.httpClient.get(this.dataService.baseIP + "lastDigitalProducts");
+  }
+
+  getLastFisicalProducts(){
+    return this.httpClient.get(this.dataService.baseIP + "lastFisicalProducts");
+  }
+
+  getDigitalProducts(){
+    return this.httpClient.get(this.dataService.baseIP + "digitalProducts");
+  }
+
+  getFisicalProducts(){
+    return this.httpClient.get(this.dataService.baseIP + "fisicalProducts");
+  }
+
+  getTags(){
+    return this.httpClient.get(this.dataService.baseIP + "tags");
+  }
+
 }
