@@ -39,4 +39,12 @@ export class GetsService {
     return this.httpClient.get(this.dataService.baseIP + "tags");
   }
 
+  getSearchFilterFisics(words){
+    return this.httpClient.get(this.dataService.baseIP + "searchFisics=%" + words + "%");
+  }
+
+  getSearchFilterDigitals(words){
+    return this.httpClient.get(this.dataService.baseIP + "searchDigitals=%" + words + "%");
+  }
+
 }

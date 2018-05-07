@@ -3,7 +3,7 @@
   <mdb-carousel [isControls]="true" class="carousel slide carousel-fade" [animation]="'fade'">
     <mdb-slide *ngFor="let product of lastProducts" >
       <div class="view">
-        <img class="d-block w-100 imgSlider rounded" src="../../../assets/products/{{product.Imatge}}" alt="">
+        <img class="d-block w-100 imgSlider rounded" src="../../../assets/productsGallery/{{product.ImatgeGaleria}}" alt="">
         <div class="mask rgba-black-light waves-light" mdbWavesEffect></div>
       </div>
         <div class="carousel-caption">
@@ -18,7 +18,7 @@
       <h1>PRODUCTES</h1>
       <div class="md-form">
         <i class="fas fa-search prefix"></i>
-        <input type="text" id="form1" placeholder="Buscar per nom de Producte">
+        <input #searchFilter type="text" id="form1" placeholder="Buscar per nom de Producte" (keyup)="getProductsSearchFilter($event)">
         <label for="form1"></label>
       </div> 
     </div>    
@@ -28,13 +28,16 @@
       <div class="col-sm-12 caixaFiltres sticky-top">
         <h3>Tipus de Producte</h3><br>
         <ul>
-          <li><mat-checkbox>DIGITAL</mat-checkbox></li>
-          <li><mat-checkbox>FÍSIC</mat-checkbox></li>
+          <li><mat-checkbox (change)="checkTagDigital($event)">DIGITAL</mat-checkbox></li>
+          <li><mat-checkbox (change)="checkTagFisic($event)">FÍSIC</mat-checkbox></li>
         </ul><br>
         <h3>Tags</h3>
-        <ul>
-          <li *ngFor="let tag of tags"><mat-checkbox>{{tag.Tag}}</mat-checkbox></li>
-        </ul>
+        <mat-form-field>
+          <mat-select [formControl]="tagList" multiple>
+            <mat-option *ngFor="let tag of tags" [value]="tag.Tag">{{tag.Tag}}</mat-option>
+          </mat-select>
+        </mat-form-field>
+        <br><button type="button" (click)="filterByTag()" class="btn btn-indigo waves-light" mdbWavesEffect>Filtrar</button>          
       </div>
     </div>
     <div class="col-sm-1">&nbsp;</div>

@@ -1,0 +1,218 @@
+{
+	"info": {
+		"name": "BackendCreditSintesi",
+		"_postman_id": "cb8d3549-0450-49c8-84b8-f5de138afba0",
+		"description": "",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "GetRawUsers",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Access-Control-Allow-Origin",
+						"value": "true",
+						"disabled": true
+					}
+				],
+				"body": {},
+				"url": {
+					"raw": "localhost:8000/usersRaw",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"usersRaw"
+					]
+				},
+				"description": null
+			},
+			"response": []
+		},
+		{
+			"name": "Login",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"url": {
+					"raw": "localhost:8000/user/user=Admin&password=1234",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"user",
+						"user=Admin&password=1234"
+					]
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "RegisterUser",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"url": {
+					"raw": "localhost:8000/registreProva/user=provaUsuari&password=123&email=123@123123&nom=prova&dataNaixament=2017-05-19&provincia=Barcelona&nif=123&avatar=User1.png&admin=0",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"registreProva",
+						"user=provaUsuari&password=123&email=123@123123&nom=prova&dataNaixament=2017-05-19&provincia=Barcelona&nif=123&avatar=User1.png&admin=0"
+					]
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "GetUserExists",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"url": {
+					"raw": "localhost:8000/user=Usuari1",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"user=Usuari1"
+					]
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "GetLastFisicalProducts",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"url": {
+					"raw": "localhost:8000/LastFisicalProducts",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"LastFisicalProducts"
+					]
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "GetLastDigitalProducts",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"url": {
+					"raw": "localhost:8000/LastDigitalProducts",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"LastDigitalProducts"
+					]
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "GetRawFisicalProducts",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"url": {
+					"raw": "localhost:8000/fisicalProducts",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"fisicalProducts"
+					]
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "GetRawDigitalProducts",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"url": {
+					"raw": "localhost:8000/digitalProducts",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"digitalProducts"
+					]
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "GetTags",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"url": {
+					"raw": "localhost:8000/tags",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"tags"
+					]
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "SearchProductFilter",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"url": {
+					"raw": "localhost:8000/searchFisics=%Peluix%",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"searchFisics=%Peluix%"
+					]
+				},
+				"description": ""
+			},
+			"response": []
+		}
+	]
+}

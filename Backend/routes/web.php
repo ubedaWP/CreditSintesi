@@ -29,4 +29,7 @@ Route::group(['middleware'=>'cors'], function(){
     Route::get('/digitalProducts', 'UserController@getProductsDigitals');
     Route::get('/fisicalProducts', 'UserController@getProductsFisics');
     Route::get('/tags', 'UserController@getTags');
+    Route::get('/searchFisics={words}', 'UserController@productSearchLineFisics');
+    Route::get('/searchDigitals={words}', 'UserController@productSearchLineDigitals');
+    Route::get('/tagsID={tags}', 'UserController@getIdTags');
 });

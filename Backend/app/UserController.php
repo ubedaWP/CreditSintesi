@@ -88,4 +88,26 @@ class UserController extends Controller
             return $data;
         }
     }
+
+    public function productSearchLineFisics(Request $request, $words){
+        $data=DB::select('select * from PRODUCTES_FISICS where PRODUCTES_FISICS.Producte like ?', [$words]);
+        if (count($data) > 0){
+            return $data;
+        }
+    }
+
+    public function productSearchLineDigitals(Request $request, $words){
+        $data=DB::select('select * from PRODUCTES_DIGITALS where PRODUCTES_DIGITALS.Producte like ?', [$words]);
+        if (count($data) > 0){
+            return $data;
+        }
+    }
+
+    public function getIdTags(Request $request, $tags){
+        $data=DB::select('select IDTag from TAGS where Tag in ([?])', $tags);
+        if (count($data) > 0){
+            return $data;
+        }
+    }
+
 }
