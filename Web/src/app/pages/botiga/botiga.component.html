@@ -33,11 +33,11 @@
         </ul><br>
         <h3>Tags</h3>
         <mat-form-field>
-          <mat-select [formControl]="tagList" multiple>
-            <mat-option *ngFor="let tag of tags" [value]="tag.Tag">{{tag.Tag}}</mat-option>
+          <mat-select placeholder="Tags" [formControl]="tagList" multiple class="tags">
+            <mat-option *ngFor="let tag of tags" [value]="tag.Tag" class="tag">{{tag.Tag}}</mat-option>
           </mat-select>
         </mat-form-field>
-        <br><button type="button" (click)="filterByTag()" class="btn btn-indigo waves-light" mdbWavesEffect>Filtrar</button>          
+        <br><button type="button" (click)="filterByTag()" class="btn btn-indigo waves-light filterButton" mdbWavesEffect>Filtrar</button>          
       </div>
     </div>
     <div class="col-sm-1">&nbsp;</div>

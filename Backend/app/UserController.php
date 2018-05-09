@@ -103,9 +103,18 @@ class UserController extends Controller
         }
     }
 
-    public function getIdTags(Request $request, $tags){
-        $data=DB::select('select IDTag from TAGS where Tag in ([?])', $tags);
+    public function getIdTag(Request $request, $tag){
+        $data=DB::select('select * from TAGS where Tag = ?', [$tag]);
         if (count($data) > 0){
+            return $data;
+        }
+    }
+
+    public function getFisicalTag(Request $request, $tag){
+        $data=DB::select('select PRODUCTES_FISICS.* FROM PRODUCTES_FISICS,TAGS_PRODUCTES_FISICS 
+        where PRODUCTES_FISICS.IDProd_Fisic = TAGS_PRODUCTES_FISICS.IDProd 
+        and TAGS_PRODUCTES_FISICS.IDTag = ?', [$tag]);
+        if (count($data) > 0 ){
             return $data;
         }
     }

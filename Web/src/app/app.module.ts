@@ -84,7 +84,7 @@ const materialModules = [
     MediaComponent,
     TopNavbarComponent,
     IniciComponent,
-    MatSnackBarContainer
+    MatSnackBarContainer,
   ],
   imports: [
     BrowserModule,
@@ -103,7 +103,6 @@ const materialModules = [
       confirmButtonClass: 'btn btn-primary',
       cancelButtonClass: 'btn'
   }),
-    
   ],
   providers: [
     DataService,

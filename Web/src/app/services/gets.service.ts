@@ -47,4 +47,16 @@ export class GetsService {
     return this.httpClient.get(this.dataService.baseIP + "searchDigitals=%" + words + "%");
   }
 
+  getIdTag(tag){
+    return this.httpClient.get(this.dataService.baseIP + "tag=" + tag);
+  }
+
+  getFilterProductsDigital_Tags(tag){
+    return this.httpClient.get(this.dataService.baseIP + "digitalTag=" + tag);
+  }
+
+  getFilterProductsFisical_Tags(tag){
+    return this.httpClient.get(this.dataService.baseIP + "fisicalTag=" + tag);
+  }
+
 }

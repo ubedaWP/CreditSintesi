@@ -31,5 +31,6 @@ Route::group(['middleware'=>'cors'], function(){
     Route::get('/tags', 'UserController@getTags');
     Route::get('/searchFisics={words}', 'UserController@productSearchLineFisics');
     Route::get('/searchDigitals={words}', 'UserController@productSearchLineDigitals');
-    Route::get('/tagsID={tags}', 'UserController@getIdTags');
+    Route::get('/tag={tag}', 'UserController@getIdTag');
+    Route::get('/fisicalTag={tag}', 'UserController@getFisicalTag');
 });
