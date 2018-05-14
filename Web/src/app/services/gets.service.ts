@@ -19,6 +19,14 @@ export class GetsService {
     return this.httpClient.get(this.dataService.baseIP + "user=" + user);
   }
 
+  getFisicalProductByID(id){
+    return this.httpClient.get(this.dataService.baseIP + "fisicId=" + id);
+  }
+
+  getDigitalProductByID(id){
+    return this.httpClient.get(this.dataService.baseIP + "digitalId=" + id);
+  }
+
   getLastDigitalProducts(){
     return this.httpClient.get(this.dataService.baseIP + "lastDigitalProducts");
   }
@@ -51,12 +59,20 @@ export class GetsService {
     return this.httpClient.get(this.dataService.baseIP + "tag=" + tag);
   }
 
-  getFilterProductsDigital_Tags(tag){
+  getFisicals1Tag(tag){
+    return this.httpClient.get(this.dataService.baseIP + "fisicalTag=" + tag);
+  }
+
+  getDigitals1Tag(tag){
     return this.httpClient.get(this.dataService.baseIP + "digitalTag=" + tag);
   }
 
-  getFilterProductsFisical_Tags(tag){
-    return this.httpClient.get(this.dataService.baseIP + "fisicalTag=" + tag);
+  getFisicals2Tags(tag1, tag2){
+    return this.httpClient.get(this.dataService.baseIP + "fisicalTags=" + tag1 + "/" + tag2);
+  }
+
+  getDigitals2Tags(tag1, tag2){
+    return this.httpClient.get(this.dataService.baseIP + "digitalTags=" + tag1 + "/" + tag2);
   }
 
 }

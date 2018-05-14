@@ -2,8 +2,9 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 import { RouterModule, Routes, Router } from '@angular/router';
 import { DataService } from '../../services/data-service.service';
 import { PublicService } from '../../services/public.service';
-import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { GetsService } from '../../services/gets.service';
+import { ProductsService } from '../../services/products.service';
+import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { THIS_EXPR } from '@angular/compiler/src/output/output_ast';
 import { SwalComponent } from '@toverux/ngx-sweetalert2';
 
@@ -16,7 +17,8 @@ export class TopNavbarComponent implements OnInit {
 
   constructor(private dataService: DataService, private publicService: PublicService, 
   private fb: FormBuilder, private getsService: GetsService, private router: Router,
-  ) {
+  private productService: ProductsService) 
+  {
 
   }
   
@@ -26,15 +28,20 @@ export class TopNavbarComponent implements OnInit {
   private isOn: boolean;
   private isAdmin: boolean;
   private avatar: string;
+  private cart: any[];
+  private isCartOn: boolean;
+
   @ViewChild('ErrorLogin') private errorLogin: SwalComponent;
   @ViewChild('SuccessLogin') private successLogin: SwalComponent;
+  @ViewChild('DeleteProduct') private deleteProductModal: SwalComponent;
+  
 
   ngOnInit() {
     this.setIsOn();
     this.setIsAdmin();
     this.setUserName();
     this.setAvatar();
-    
+    this.setCart();
   }
 
   
@@ -65,6 +72,17 @@ export class TopNavbarComponent implements OnInit {
     this.avatar = this.publicService.getAvatar();
   }
 
+  setCart(){
+    if(this.publicService.getCartIsOn() == 'true'){
+      this.cart = [];
+      this.isCartOn = true;
+    }
+    else if(this.publicService.getCartIsOn() == 'false'){
+      this.cart = [];
+      this.isCartOn = false;
+    }
+  }
+
   getAllUsers(){
     this.getsService.getUsersRaw().subscribe(
       data=>{
@@ -92,8 +110,10 @@ export class TopNavbarComponent implements OnInit {
           this.publicService.setIsOn('true');
           this.publicService.setUserName(this.user);
           this.publicService.setAvatar(data[0].Avatar);
+          this.publicService.setCartIsOn('true');
           this.avatar = this.publicService.getAvatar();
           this.setIsOn();
+          this.setCart();
           if (data[0].Admin == "1") {
             this.publicService.setIsAdmin('true');
             this.setIsAdmin();
@@ -118,6 +138,32 @@ export class TopNavbarComponent implements OnInit {
   Logout(){
     this.publicService.logout();
     location.reload();
+  }
+
+  newProduct( name, image, price){
+    this.cart.push({ name: name, image:image, price:price });
+  }
+
+  // deleteProductFromCart(name){
+  //   for (let index = 0; index < this.cart.length; index++) {
+  //     const element = this.cart[index];
+  //     if(name == element.name){
+  //       delete this.cart[index];
+  //       this.productService.getProducts();
+  //       break;
+  //     }
+  //     else{
+  //     }
+  //   }
+  // }
+
+  // reloadAfterDelete(){
+  //   this.deleteProductModal.show();
+  //   location.reload();
+  // }
+
+  getProducts(){
+    this.cart = this.productService.getProducts();
   }
   
 }

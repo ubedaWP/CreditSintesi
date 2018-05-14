@@ -5,6 +5,8 @@ import { CookieService } from 'angular2-cookie/core';
 @Injectable()
 export class PublicService implements OnInit{
 
+  public cart = [];
+
   constructor( private dataService: DataService, private _cookieService:CookieService) { 
     
   }
@@ -14,6 +16,7 @@ export class PublicService implements OnInit{
     this._cookieService.put('isOn', 'false');
     this._cookieService.put('user', '');
     this._cookieService.put('avatar', '');
+    this._cookieService.put('cart', 'false');
   }
 
   public setIsOn(isOn: string){
@@ -48,11 +51,20 @@ export class PublicService implements OnInit{
     return this._cookieService.get('avatar');
   }
 
+  public setCartIsOn(cart){
+    this._cookieService.put('cart', cart);
+  }
+
+  public getCartIsOn(){
+    return this._cookieService.get('cart');
+  }
+
   public logout(){
     this._cookieService.put('user', '');
     this._cookieService.put('isAdmin', 'false');
     this._cookieService.put('isOn', 'false');
     this._cookieService.put('avatar', '');
+    this._cookieService.put('cart', 'false');
   }
 
 }

@@ -28,6 +28,7 @@ import { DialogsService } from './services/dialogs.service';
 import { GetsService } from './services/gets.service';
 import { CookieService } from 'angular2-cookie/services/cookies.service';
 import { InsertsService } from './services/inserts.service';
+import { ProductsService } from './services/products.service';
 
 //COMPONENTS
 import { AppComponent } from './app.component';
@@ -42,6 +43,7 @@ import { HttpClient, HttpHandler, HttpHeaders } from '@angular/common/http';
 import { HttpClientModule } from '@angular/common/http';
 import { TopNavbarComponent } from './pages/top-navbar/top-navbar.component';
 import { IniciComponent } from './pages/inici/inici.component';
+import { ProducteComponent } from './pages/botiga/producte/producte.component';
 
 
 //PAGE ROUTES
@@ -51,6 +53,7 @@ const appRoutes: Routes = [
   { path: 'media', component: MediaComponent },
   { path: 'register', component: RegisterComponent },
   { path: 'home', component: IniciComponent},
+  { path: 'product/:type/:id', component: ProducteComponent }
 ];
 
 const materialModules = [
@@ -85,6 +88,7 @@ const materialModules = [
     TopNavbarComponent,
     IniciComponent,
     MatSnackBarContainer,
+    ProducteComponent,
   ],
   imports: [
     BrowserModule,
@@ -110,6 +114,7 @@ const materialModules = [
     DialogsService,
     CookieService,
     InsertsService,
+    ProductsService,
     HttpClient,
     MatSnackBar,
     Overlay,

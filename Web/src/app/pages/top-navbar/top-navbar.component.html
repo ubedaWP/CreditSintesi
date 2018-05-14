@@ -18,6 +18,25 @@
                 <a class="nav-link" [routerLink]="['/shop']"><button mat-button class="hoverable">BOTIGA</button></a>
             </li>      
         </ul>
+        <span class="navbar-text white-text" style="margin-right: 5%;" *ngIf="isCartOn">
+            <!-- Split button -->
+            <div class="btn-group" dropdown>
+                <button type="button" class="btn btn-info waves-light" mdbWavesEffect><i class="fas fa-shopping-cart"></i></button>
+                <button type="button" (click)="getProducts()" dropdownToggle class="btn btn-info dropdown-toggle dropdown-toggle-split px-3 waves-light" mdbWavesEffect></button>
+                <div class="dropdown-menu">
+                    <a class="cartItem" *ngFor="let cartProduct of cart" class="dropdown-item">
+                        <img src="../../../assets/products/{{cartProduct.image}}" class="cartImage" alt="">
+                        {{cartProduct.name}} | {{cartProduct.price}}€
+                        <!-- <form class="example-form" style="display:none;">
+                        <mat-form-field class="example-full-width">
+                            <input #name matInput value="{{cartProduct.name}}">
+                        </mat-form-field>
+                        </form>
+                        <i class="fas fa-times-circle" (click)="deleteProductFromCart(name.value)"></i> -->
+                     </a>
+                </div>
+            </div>                     
+        </span>
         <span class="navbar-text white-text" *ngIf="isOn">
             <a class="nav-link" ><img class="avatar" src='../../../assets/avatars/{{avatar}}'></a>
         </span>
@@ -76,6 +95,7 @@
     </div>
 </div>
 <swal #ErrorLogin title="Error" text="L'usuari o la contrasenya són incorrectes" type="error"></swal>
+<swal #DeleteProduct title="Eliminat" text="El producte ha sigut eliminat de la llista" type="error"></swal>
 <swal #SuccessLogin title="Perfecte!" text="Has entrat correctament!" type="success"></swal>               
 <!-- Example de Dropdown -->
 <!-- <div class="btn-group" dropdown>

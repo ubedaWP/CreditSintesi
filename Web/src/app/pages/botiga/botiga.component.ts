@@ -3,6 +3,8 @@ import { DataService } from '../../services/data-service.service';
 import { GetsService } from '../../services/gets.service';
 import { FormControl, RequiredValidator } from '@angular/forms';
 import { Tag } from '../../services/models/Tag';
+import { ProductsService } from '../../services/products.service';
+import { PublicService } from '../../services/public.service';
 
 @Component({
   selector: 'app-botiga',
@@ -17,14 +19,18 @@ export class BotigaComponent implements OnInit {
   public tags;
   public digitalTag : boolean = false;
   public fisicalTag : boolean = false;
-  public tagList = new FormControl();
+  public tagList;
+  public tagList1 = new FormControl();
+  public tagList2 = new FormControl();
   public preFisics = [];
   public preDigitals = [];
+  public isCartOn: boolean;
 
   @ViewChild('searchFilter') private searchFilter;
-  
+  @ViewChild('addProduct') private addProductModal;
 
-  constructor(private getService : GetsService){
+  constructor(private getService : GetsService, private productService: ProductsService,
+  private publicService: PublicService){
 
   }
 
@@ -34,6 +40,22 @@ export class BotigaComponent implements OnInit {
     this.getDigitalProducts();
     this.getFisicalProducts();
     this.getTags();
+    this.getCartIsOn();
+  }
+
+  getCartIsOn(){
+    const isOn = this.publicService.getCartIsOn();
+    if(isOn == 'false'){
+      this.isCartOn = false;
+    }
+    else if(isOn == 'true'){
+      this.isCartOn = true;
+    }
+  }
+
+  addNewProductToCart(name, image, price){
+    this.productService.addProduct(name, image, price);
+    this.addProductModal.show();
   }
 
   getLastDigital(){
@@ -131,56 +153,109 @@ export class BotigaComponent implements OnInit {
     this.fisicalTag = event.checked;
   }
 
-  filterByTag(){
-    const llistaTags = this.tagList;
-    if((this.fisicalTag == true && this.digitalTag == true && llistaTags.value == null) || (this.fisicalTag == false && this.digitalTag == false && llistaTags.value == null)){
-      this.getDigitalProducts();
-      this.getFisicalProducts();
-    }
-    else if(this.fisicalTag == true && this.digitalTag == false && llistaTags.value == null){
-      this.digitalProducts = [];
-      this.getFisicalProducts();
-    }
-    else if(this.fisicalTag == false && this.digitalTag == true && llistaTags.value == null){
-      this.fisicalProducts = [];
-      this.getDigitalProducts();
-    }
-    else if(this.fisicalTag == true && this.digitalTag == false && llistaTags.value.length > 0){
-      this.fisicalProducts = [];
-      this.digitalProducts = [];
-    }
-    else if((this.fisicalTag == true && this.digitalTag == true && llistaTags.value.length > 0) || (this.fisicalTag == false && this.digitalTag == false && llistaTags.value.length > 0)) {
-      this.fisicalProducts = [];
-      this.digitalProducts = [];
-      for (let index = 0; index < llistaTags.value.length; index++) {
-        const tag = llistaTags.value[index];
-        this.getService.getIdTag(tag).subscribe(
-          data=>{
-            const tagID = data[0].IDTag;
-            this.getService.getFilterProductsFisical_Tags(tagID).subscribe(
-              data=>{
-                if (data[0] in this.fisicalProducts) {
-                  console.log("REPE");
-                }
-                else{
-                  this.fisicalProducts.push(data[0]);
-                }
-              },
-              error=>{
-                console.log("ERROR",error);
-              }
-            )
-          },
-          error=>{  
-          },
-        )
+  getFisicalProducts1Tag(tag){
+    this.getService.getFisicals1Tag(tag).subscribe(
+      data=>{
+        this.fisicalProducts = data;
+      },
+      error=>{
+        console.log(error);
       }
-      console.log(this.fisicalProducts);
+    )
+  }
+
+  getDigitalProducts1Tag(tag){
+    this.getService.getDigitals1Tag(tag).subscribe(
+      data=>{
+        this.digitalProducts = data;
+      },
+      error=>{
+        console.log(error);
+      }
+    )
+  }
+
+  getFisicalProducts2Tags(tag1, tag2){
+    this.getService.getFisicals2Tags(tag1, tag2).subscribe(
+      data=>{
+        this.fisicalProducts = data;
+      },
+      error=>{
+        console.log(error);
+      }
+    )
+  }
+
+  getDigitalProducts2Tags(tag1, tag2){
+    this.getService.getDigitals2Tags(tag1, tag2).subscribe(
+      data=>{
+        this.digitalProducts = data;
+      },
+      error=>{
+        console.log(error);
+      }
+    )
+  }
+
+  filterByTag(){
+    const llistaTags1 = this.tagList1.value;
+    const llistaTags2 = this.tagList2.value;
+    this.fisicalProducts = [];
+    this.digitalProducts = [];
+
+    console.log(this.fisicalTag, this.digitalTag, llistaTags1, llistaTags2);
+    if((this.fisicalTag == true && this.digitalTag == true && llistaTags1 == null && llistaTags2 == null) || (this.fisicalTag == false && this.digitalTag == false && llistaTags1 == null && llistaTags2 == null)){
+      this.getDigitalProducts();
+      this.getFisicalProducts();
     }
-    else if(this.fisicalTag == false && this.digitalTag == true && llistaTags.value.length > 0){
+    else if((this.fisicalTag == true && this.digitalTag == true && llistaTags1 != null && llistaTags2 == null) || (this.fisicalTag == false && this.digitalTag == false && llistaTags1 != null && llistaTags2 == null)){
+      this.getDigitalProducts1Tag(llistaTags1);
+      this.getFisicalProducts1Tag(llistaTags1);
+    }
+    else if((this.fisicalTag == true && this.digitalTag == true && llistaTags1 == null && llistaTags2 != null) || (this.fisicalTag == false && this.digitalTag == false && llistaTags1 == null && llistaTags2 != null)){
+      this.getDigitalProducts1Tag(llistaTags2);//TAG2
+      this.getFisicalProducts1Tag(llistaTags2);//TAG2
+    }
+    else if((this.fisicalTag == true && this.digitalTag == true && llistaTags1 != null && llistaTags2 != null) || (this.fisicalTag == false && this.digitalTag == false && llistaTags1 != null && llistaTags2 != null)){
+      this.getDigitalProducts2Tags(llistaTags1, llistaTags2);//TAG1 i TAG2
+      this.getFisicalProducts2Tags(llistaTags1, llistaTags2);//TAG1 i TAG2
+    }
+    else if(this.fisicalTag == true && this.digitalTag == false && llistaTags1 == null && llistaTags2 == null){
       this.digitalProducts = [];
-      this.fisicalProducts = [];
+      this.getFisicalProducts();
     }
-    
+    else if(this.fisicalTag == true && this.digitalTag == false && llistaTags1 != null && llistaTags2 == null){
+      this.digitalProducts = [];
+      this.getFisicalProducts1Tag(llistaTags1);
+      //getFisicsProductsTAG1
+    }
+    else if(this.fisicalTag == true && this.digitalTag == false && llistaTags1 == null && llistaTags2 != null){
+      this.digitalProducts = [];
+      this.getFisicalProducts1Tag(llistaTags2);
+      //getFisicsProductsTAG2
+    }
+    else if(this.fisicalTag == true && this.digitalTag == false && llistaTags1 != null && llistaTags2 != null){
+      this.digitalProducts = [];
+      this.getFisicalProducts2Tags(llistaTags1, llistaTags2);
+      //getFisicsProductsTAG1 i TAG2
+    }
+    else if(this.fisicalTag == false && this.digitalTag == true && llistaTags1 == null && llistaTags2 == null){
+      this.fisicalProducts = [];
+      this.getDigitalProducts();
+    }
+    else if(this.fisicalTag == false && this.digitalTag == true && llistaTags1 != null && llistaTags2 == null){
+      this.fisicalProducts = [];
+      this.getDigitalProducts1Tag(llistaTags1);
+    }
+    else if(this.fisicalTag == false && this.digitalTag == true && llistaTags1 == null && llistaTags2 != null){
+      this.fisicalProducts = [];
+      this.getDigitalProducts1Tag(llistaTags2);
+      //getDigitalProductsTAG2
+    }
+    else if(this.fisicalTag == false && this.digitalTag == true && llistaTags1 != null && llistaTags2 != null){
+      this.fisicalProducts = [];
+      this.getDigitalProducts2Tags(llistaTags1, llistaTags2);
+      //getDigitalProductsTAG1 i TAG2
+    }    
   }
 }

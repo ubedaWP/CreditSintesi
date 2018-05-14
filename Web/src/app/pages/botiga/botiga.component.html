@@ -19,7 +19,8 @@
       <div class="md-form">
         <i class="fas fa-search prefix"></i>
         <input #searchFilter type="text" id="form1" placeholder="Buscar per nom de Producte" (keyup)="getProductsSearchFilter($event)">
-        <label for="form1"></label>
+        <label for="form1"></label><br>
+        <button type="button" (click)="filterByTag()" class="btn btn-indigo waves-light filterButton" mdbWavesEffect>Filtrar</button>
       </div> 
     </div>    
   </div>
@@ -33,11 +34,20 @@
         </ul><br>
         <h3>Tags</h3>
         <mat-form-field>
-          <mat-select placeholder="Tags" [formControl]="tagList" multiple class="tags">
-            <mat-option *ngFor="let tag of tags" [value]="tag.Tag" class="tag">{{tag.Tag}}</mat-option>
+          <mat-select placeholder="Tags" [formControl]="tagList1">
+            <mat-option *ngFor="let tag of tags" [value]="tag.Tag">
+              {{ tag.Tag }}
+            </mat-option>
           </mat-select>
         </mat-form-field>
-        <br><button type="button" (click)="filterByTag()" class="btn btn-indigo waves-light filterButton" mdbWavesEffect>Filtrar</button>          
+        <br><br><br><br><br><br>
+        <mat-form-field>
+          <mat-select placeholder="Tags" [formControl]="tagList2">
+            <mat-option *ngFor="let tag of tags" [value]="tag.Tag">
+              {{ tag.Tag }}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>          
       </div>
     </div>
     <div class="col-sm-1">&nbsp;</div>
@@ -50,7 +60,7 @@
             <!--Card image-->
             <div class="view hm-white-slight waves-light" mdbWavesEffect>
               <img src="../../../assets/products/{{product.Imatge}}" class="img-fluid" alt="Card image with a tree in a middle of a lake.">
-              <a>
+              <a [routerLink]="['/product/fisic', product.IDProd_Fisic]">
                 <div class="mask"></div>
               </a>
             </div>
@@ -61,6 +71,21 @@
               <!--Text-->
               <p class="card-text" style="text-align: center;">{{product.Descripcio}}</p>
               <p class="card-text">Preu: {{product.Preu}}&nbsp;<i class="fas fa-euro-sign"></i></p>
+              <p class="card-text">
+                <form class="example-form" style="display:none;">
+                  <mat-form-field class="example-full-width">
+                    <input #name matInput value="{{product.Producte}}">
+                  </mat-form-field>
+                  <mat-form-field class="example-full-width">
+                    <input #image matInput value="{{product.Imatge}}">
+                  </mat-form-field>
+                  <mat-form-field class="example-full-width">
+                    <input #price matInput value="{{product.Preu}}">
+                  </mat-form-field>
+                </form>
+                <button type="button" *ngIf="isCartOn" class="btn btn-cyan waves-light botoProducte" (click)="addNewProductToCart(name.value, image.value, price.value)" mdbWavesEffect>
+                    <i class="fas fa-cart-plus"></i>
+                </button>
             </div>
           </div>
           <!--/.Card-->
@@ -74,7 +99,7 @@
             <!--Card image-->
             <div class="view hm-white-slight waves-light" mdbWavesEffect>
               <img src="../../../assets/products/{{product.Imatge}}" class="img-fluid" alt="Card image with a tree in a middle of a lake.">
-              <a>
+              <a [routerLink]="['/product/digital', product.IDProd_Digital]">
                 <div class="mask"></div>
               </a>
             </div>
@@ -85,6 +110,21 @@
               <!--Text-->
               <p class="card-text" style="text-align: center;">{{product.Descripcio}}</p>
               <p class="card-text">Preu: {{product.Preu}}&nbsp;<i class="fas fa-euro-sign"></i></p>
+              <p class="card-text">
+                <form class="example-form" style="display:none;">
+                  <mat-form-field class="example-full-width">
+                    <input #name matInput value="{{product.Producte}}">
+                  </mat-form-field>
+                  <mat-form-field class="example-full-width">
+                    <input #image matInput value="{{product.Imatge}}">
+                  </mat-form-field>
+                  <mat-form-field class="example-full-width">
+                    <input #price matInput value="{{product.Preu}}">
+                  </mat-form-field>
+                </form>
+                <button type="button" *ngIf="isCartOn" class="btn btn-cyan waves-light botoProducte" (click)="addNewProductToCart(name.value, image.value, price.value)" mdbWavesEffect>
+                    <i class="fas fa-cart-plus"></i>
+                </button>
             </div>
           </div>
           <!--/.Card-->
@@ -93,4 +133,5 @@
     </div>
   </div>
 </div>  
-
+<!-- MODALS -->
+<swal #addProduct title="Afegit!" text="S'ha afegit correctament el producte al Carro" type="success"></swal> 

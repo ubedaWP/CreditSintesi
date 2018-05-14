@@ -32,5 +32,10 @@ Route::group(['middleware'=>'cors'], function(){
     Route::get('/searchFisics={words}', 'UserController@productSearchLineFisics');
     Route::get('/searchDigitals={words}', 'UserController@productSearchLineDigitals');
     Route::get('/tag={tag}', 'UserController@getIdTag');
-    Route::get('/fisicalTag={tag}', 'UserController@getFisicalTag');
+    Route::get('/fisicId={id}', 'UserController@getProductFisicId');
+    Route::get('/digitalId={id}', 'UserController@getProductDigitalId');
+    Route::get('/digitalTag={tag1}', 'UserController@getDigitalTag');
+    Route::get('/fisicalTag={tag1}', 'UserController@getFisicalTag');
+    Route::get('/digitalTags={tag1}/{tag2}', 'UserController@getDigitalTags');
+    Route::get('/fisicalTags={tag1}/{tag2}', 'UserController@getFisicalTags');
 });

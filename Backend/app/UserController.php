@@ -54,6 +54,20 @@ class UserController extends Controller
         ]);
     }
 
+    public function getProductFisicId(Request $request, $id){
+        $data=DB::select('select * from PRODUCTES_FISICS where IDProd_Fisic = ?', [$id]);
+        if (count($data) > 0) {
+            return $data;
+        }
+    }
+
+    public function getProductDigitalId(Request $request, $id){
+        $data=DB::select('select * from PRODUCTES_DIGITALS where IDProd_Digital = ?', [$id]);
+        if (count($data) > 0) {
+            return $data;
+        }
+    }
+
     public function getLastProductsDigital(Request $request){
         $data=DB::select('select * from PRODUCTES_DIGITALS order by IDProd_Digital DESC');
         if (count($data) > 0){
@@ -110,13 +124,36 @@ class UserController extends Controller
         }
     }
 
-    public function getFisicalTag(Request $request, $tag){
-        $data=DB::select('select PRODUCTES_FISICS.* FROM PRODUCTES_FISICS,TAGS_PRODUCTES_FISICS 
+    public function getDigitalTag(Request $request, $tag1){
+        $data=DB::select('select distinct PRODUCTES_DIGITALS.* from PRODUCTES_DIGITALS,TAGS,TAGS_PRODUCTES_DIGITALS 
+        where PRODUCTES_DIGITALS.IDProd_Digital = TAGS_PRODUCTES_DIGITALS.IDProd 
+        and TAGS_PRODUCTES_DIGITALS.IDTag = TAGS.IDTag 
+        and TAGS.Tag in (?)',[$tag1]);
+        return $data;
+    }
+
+    public function getFisicalTag(Request $request, $tag1){
+        $data=DB::select('select distinct PRODUCTES_FISICS.* from PRODUCTES_FISICS,TAGS,TAGS_PRODUCTES_FISICS 
         where PRODUCTES_FISICS.IDProd_Fisic = TAGS_PRODUCTES_FISICS.IDProd 
-        and TAGS_PRODUCTES_FISICS.IDTag = ?', [$tag]);
-        if (count($data) > 0 ){
-            return $data;
-        }
+        and TAGS_PRODUCTES_FISICS.IDTag = TAGS.IDTag 
+        and TAGS.Tag in (?)',[$tag1]);
+        return $data;
+    }
+
+    public function getDigitalTags(Request $request, $tag1, $tag2){
+        $data=DB::select('select distinct PRODUCTES_DIGITALS.* from PRODUCTES_DIGITALS,TAGS,TAGS_PRODUCTES_DIGITALS 
+        where PRODUCTES_DIGITALS.IDProd_Digital = TAGS_PRODUCTES_DIGITALS.IDProd 
+        and TAGS_PRODUCTES_DIGITALS.IDTag = TAGS.IDTag 
+        and TAGS.Tag in (?,?)',[$tag1,$tag2]);
+        return $data;
+    }
+
+    public function getFisicalTags(Request $request, $tag1, $tag2){
+        $data=DB::select('select distinct PRODUCTES_FISICS.* from PRODUCTES_FISICS,TAGS,TAGS_PRODUCTES_FISICS 
+        where PRODUCTES_FISICS.IDProd_Fisic = TAGS_PRODUCTES_FISICS.IDProd 
+        and TAGS_PRODUCTES_FISICS.IDTag = TAGS.IDTag 
+        and TAGS.Tag in (?,?)',[$tag1,$tag2]);
+        return $data;
     }
 
 }
