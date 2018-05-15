@@ -1,1 +1,33 @@
-
+<div class="container">
+    <div class="row">
+        <div class="col-sm-2">
+            <button type="button" class="{{buttonNovetats}}" mdbWavesEffect (click)="getNovetats()">Novetats</button>
+        </div>
+        <div class="col-sm-2">
+            <button type="button" class="{{buttonActualitzacions}}" mdbWavesEffect (click)="getActualitzacions()">Correccions</button>
+        </div>
+        <div class="col-sm-2">
+            <button type="button" class="{{buttonComunitat}}" mdbWavesEffect (click)="getComunitat()">Comunitat</button>
+        </div>
+        <div class="col-sm-2">
+            <button type="button" class="{{buttonEvents}}" mdbWavesEffect (click)="getEvents()">Events</button>
+        </div>
+        <div class="col-sm-2">
+            <button type="button" class="{{buttonBotiga}}" mdbWavesEffect (click)="getBotiga()">Botiga</button>
+        </div>
+        <div class="col-sm-2">
+            <button type="button" class="{{buttonAltres}}" mdbWavesEffect (click)="getAltres()">Altres</button>
+        </div>
+    </div>
+    <br>
+    <div *ngFor="let new of news" class="row noticia">
+        <div class="col-sm-4">
+            <a [routerLink]="['/news', new.IDNot]"><img src="../../../assets/noticies/{{new.IDNot}}/{{new.ImatgePortada}}" alt="{{new.Titol}}" class="portada"></a>
+        </div>
+        <div class="col-sm-8 textResum">
+            <a [routerLink]="['/news', new.IDNot]"><h2>{{new.Titol}}</h2></a><br>
+            <h5><b>{{new.Resum}}</b></h5>
+        </div>
+        <div class="lineaHR"></div>
+    </div>
+</div>

@@ -41,16 +41,20 @@ import { HttpClientModule } from '@angular/common/http';
 import { TopNavbarComponent } from './pages/top-navbar/top-navbar.component';
 import { IniciComponent } from './pages/inici/inici.component';
 import { ProducteComponent } from './pages/botiga/producte/producte.component';
+import { NewsSingularComponent } from './pages/noticies/news-singular/news-singular.component';
+import { FooterComponent } from './pages/footer/footer.component';
 
 
 //PAGE ROUTES
 const appRoutes: Routes = [
+  { path: '', redirectTo: 'home', pathMatch: 'full' },
   { path: 'news', component: NoticiesComponent },
   { path: 'shop', component: BotigaComponent},
   { path: 'media', component: MediaComponent },
   { path: 'register', component: RegisterComponent },
   { path: 'home', component: IniciComponent},
-  { path: 'product/:type/:id', component: ProducteComponent }
+  { path: 'product/:type/:id', component: ProducteComponent },
+  { path: 'news/:id', component: NewsSingularComponent }
 ];
 
 const materialModules = [
@@ -83,6 +87,8 @@ const materialModules = [
     IniciComponent,
     MatSnackBarContainer,
     ProducteComponent,
+    NewsSingularComponent,
+    FooterComponent
   ],
   imports: [
     BrowserModule,

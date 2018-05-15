@@ -163,4 +163,11 @@ class UserController extends Controller
         }
     }
 
+    public function getNewsById(Request $request, $id){
+        $data=DB::select('select * from NOTICIES where IDNot = ?', [$id]);
+        if(count($data) > 0){
+            return $data;
+        }
+    }
+
 }

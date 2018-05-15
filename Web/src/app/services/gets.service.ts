@@ -78,4 +78,8 @@ export class GetsService {
   getNoticies(category){
     return this.httpClient.get(this.dataService.baseIP + "newsCategory=" + category);
   }
+
+  getNoticiaId(id){
+    return this.httpClient.get(this.dataService.baseIP + "news/Id=" + id);
+  }
 }

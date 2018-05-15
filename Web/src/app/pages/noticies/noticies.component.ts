@@ -10,92 +10,135 @@ export class NoticiesComponent implements OnInit {
 
   constructor(private getService: GetsService) { }
 
-  public novetats;
-  public actualitzacions;
-  public events;
-  public comunitat;
-  public botiga;
-  public altres;
+  public news;
+
+  public buttonNovetats;
+  public buttonActualitzacions;
+  public buttonEvents;
+  public buttonComunitat;
+  public buttonBotiga;
+  public buttonAltres
 
   ngOnInit() {
     this.getNovetats();
-    this.getActualitzacions();
-    this.getEvents();
-    this.getComunitat();
-    this.getBotiga();
-    this.getAltres();
+    this.setButtonClassesInit();
+  }
+
+  setButtonClassesInit(){
+    this.buttonNovetats = 'btn btn-outline-brown waves-light';
+    this.buttonActualitzacions = 'btn btn-brown waves-light';
+    this.buttonEvents = 'btn btn-brown waves-light';
+    this.buttonComunitat = 'btn btn-brown waves-light';
+    this.buttonBotiga = 'btn btn-brown waves-light';
+    this.buttonAltres = 'btn btn-brown waves-light';
   }
 
   getNovetats(){
     this.getService.getNoticies('Novedades').subscribe(
       data=>{
-        this.novetats = data;
-        console.log(this.novetats);
+        this.news = data;
+        console.log(this.news);
       },
       error=>{
         console.log(error);
       }
     )
+    this.buttonNovetats = 'btn btn-outline-brown waves-light';
+    this.buttonActualitzacions = 'btn btn-brown waves-light';
+    this.buttonEvents = 'btn btn-brown waves-light';
+    this.buttonComunitat = 'btn btn-brown waves-light';
+    this.buttonBotiga = 'btn btn-brown waves-light';
+    this.buttonAltres = 'btn btn-brown waves-light';
   }
 
   getActualitzacions(){
     this.getService.getNoticies('Actualizaciones').subscribe(
       data=>{
-        this.actualitzacions = data;
-        console.log(this.actualitzacions);
+        this.news = data;
+        console.log(this.news);
       },
       error=>{
         console.log(error);
       }
     )
+    this.buttonNovetats = 'btn btn-brown waves-light';
+    this.buttonActualitzacions = 'btn btn-outline-brown waves-light';
+    this.buttonEvents = 'btn btn-brown waves-light';
+    this.buttonComunitat = 'btn btn-brown waves-light';
+    this.buttonBotiga = 'btn btn-brown waves-light';
+    this.buttonAltres = 'btn btn-brown waves-light';
   }
 
   getEvents(){
     this.getService.getNoticies('Eventos').subscribe(
       data=>{
-        this.events = data;
-        console.log(this.events);
+        this.news = data;
+        console.log(this.news);
       },
       error=>{
         console.log(error);
       }
     )
+    this.buttonNovetats = 'btn btn-brown waves-light';
+    this.buttonActualitzacions = 'btn btn-brown waves-light';
+    this.buttonEvents = 'btn btn-outline-brown waves-light';
+    this.buttonComunitat = 'btn btn-brown waves-light';
+    this.buttonBotiga = 'btn btn-brown waves-light';
+    this.buttonAltres = 'btn btn-brown waves-light';
   }
 
   getComunitat(){
     this.getService.getNoticies('Comunidad').subscribe(
       data=>{
-        this.comunitat = data;
-        console.log(this.comunitat);
+        this.news = data;
+        console.log(this.news);
       },
       error=>{
         console.log(error);
       }
     )
+    this.buttonNovetats = 'btn btn-brown waves-light';
+    this.buttonActualitzacions = 'btn btn-brown waves-light';
+    this.buttonEvents = 'btn btn-brown waves-light';
+    this.buttonComunitat = 'btn btn-outline-brown waves-light';
+    this.buttonBotiga = 'btn btn-brown waves-light';
+    this.buttonAltres = 'btn btn-brown waves-light';
   }
 
   getBotiga(){
     this.getService.getNoticies('Tienda').subscribe(
       data=>{
-        this.botiga = data;
-        console.log(this.botiga);
+        this.news = data;
+        console.log(this.news);
       },
       error=>{
         console.log(error);
       }
     )
+    this.buttonNovetats = 'btn btn-brown waves-light';
+    this.buttonActualitzacions = 'btn btn-brown waves-light';
+    this.buttonEvents = 'btn btn-brown waves-light';
+    this.buttonComunitat = 'btn btn-brown waves-light';
+    this.buttonBotiga = 'btn btn-outline-brown waves-light';
+    this.buttonAltres = 'btn btn-brown waves-light';
   }
 
   getAltres(){
     this.getService.getNoticies('Otros').subscribe(
       data=>{
-        this.altres = data;
-        console.log(this.altres);
+        this.news = data;
+        console.log(this.news);
       },
       error=>{
         console.log(error);
       }
     )
+    this.buttonNovetats = 'btn btn-brown waves-light';
+    this.buttonActualitzacions = 'btn btn-brown waves-light';
+    this.buttonEvents = 'btn btn-brown waves-light';
+    this.buttonComunitat = 'btn btn-brown waves-light';
+    this.buttonBotiga = 'btn btn-brown waves-light';
+    this.buttonAltres = 'btn btn-outline-brown waves-light';
   }
 
 }

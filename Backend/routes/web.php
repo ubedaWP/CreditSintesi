@@ -39,4 +39,5 @@ Route::group(['middleware'=>'cors'], function(){
     Route::get('/digitalTags={tag1}/{tag2}', 'UserController@getDigitalTags');
     Route::get('/fisicalTags={tag1}/{tag2}', 'UserController@getFisicalTags');
     Route::get('/newsCategory={categoria}', 'UserController@getNewsData');
+    Route::get('/news/Id={id}', 'UserController@getNewsById');
 });
