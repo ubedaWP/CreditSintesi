@@ -1,8 +1,7 @@
 {
 	"info": {
-		"name": "BackendCreditSintesi",
 		"_postman_id": "cb8d3549-0450-49c8-84b8-f5de138afba0",
-		"description": "",
+		"name": "BackendCreditSintesi",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
 	"item": [
@@ -27,8 +26,7 @@
 					"path": [
 						"usersRaw"
 					]
-				},
-				"description": null
+				}
 			},
 			"response": []
 		},
@@ -48,8 +46,7 @@
 						"user",
 						"user=Admin&password=1234"
 					]
-				},
-				"description": ""
+				}
 			},
 			"response": []
 		},
@@ -69,8 +66,7 @@
 						"registreProva",
 						"user=provaUsuari&password=123&email=123@123123&nom=prova&dataNaixament=2017-05-19&provincia=Barcelona&nif=123&avatar=User1.png&admin=0"
 					]
-				},
-				"description": ""
+				}
 			},
 			"response": []
 		},
@@ -89,8 +85,7 @@
 					"path": [
 						"user=Usuari1"
 					]
-				},
-				"description": ""
+				}
 			},
 			"response": []
 		},
@@ -109,8 +104,7 @@
 					"path": [
 						"LastFisicalProducts"
 					]
-				},
-				"description": ""
+				}
 			},
 			"response": []
 		},
@@ -129,8 +123,7 @@
 					"path": [
 						"LastDigitalProducts"
 					]
-				},
-				"description": ""
+				}
 			},
 			"response": []
 		},
@@ -149,8 +142,7 @@
 					"path": [
 						"fisicalProducts"
 					]
-				},
-				"description": ""
+				}
 			},
 			"response": []
 		},
@@ -169,8 +161,7 @@
 					"path": [
 						"digitalProducts"
 					]
-				},
-				"description": ""
+				}
 			},
 			"response": []
 		},
@@ -189,13 +180,50 @@
 					"path": [
 						"tags"
 					]
-				},
-				"description": ""
+				}
 			},
 			"response": []
 		},
 		{
-			"name": "SearchProductFilter",
+			"name": "GetProductFisicByID",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"url": {
+					"raw": "localhost:8000/fisicId=1",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"fisicId=1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "SearchProductDigital",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"url": {
+					"raw": "localhost:8000/searchDigitals=%moto%",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"searchDigitals=%moto%"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "SearchProductFilterFisic",
 			"request": {
 				"method": "GET",
 				"header": [],
@@ -209,8 +237,162 @@
 					"path": [
 						"searchFisics=%Peluix%"
 					]
-				},
-				"description": ""
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GetProductDigitalByID",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"url": {
+					"raw": "localhost:8000/digitalId=1",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"digitalId=1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GetTagByName",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"url": {
+					"raw": "localhost:8000/tag=Muntura",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"tag=Muntura"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GetDigitalProductBy1Tag",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"url": {
+					"raw": "localhost:8000/digitalTag=Muntura",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"digitalTag=Muntura"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GetFisicalProductBy1Tag",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"url": {
+					"raw": "localhost:8000/fisicalTag=Peluix",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"fisicalTag=Peluix"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GetDigitalProductsBy2Tags",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"url": {
+					"raw": "localhost:8000/digitalTags=Muntura/Mascota",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"digitalTags=Muntura",
+						"Mascota"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GetFisicalProductsBy2Tags",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"url": {
+					"raw": "localhost:8000/fisicalTags=Horda/Figura",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"fisicalTags=Horda",
+						"Figura"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GetNewsData",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"url": {
+					"raw": "localhost:8000/newsCategory=(CATEGORIA)",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"newsCategory=(CATEGORIA)"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GetNewsById",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"url": {
+					"raw": "localhost:8000/news/Id=2",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"news",
+						"Id=2"
+					]
+				}
 			},
 			"response": []
 		}
