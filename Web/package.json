@@ -26,6 +26,7 @@
     "@toverux/ngx-sweetalert2": "^3.4.0",
     "angular-bootstrap-md": "^6.0.1",
     "angular-sweetalert-service": "^2.0.2",
+    "angular-tabs-component": "^1.0.6",
     "angular2-cookie": "^1.2.6",
     "bootstrap": "^4.1.0",
     "chart.js": "^2.5.0",

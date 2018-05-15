@@ -35,9 +35,6 @@ import { AppComponent } from './app.component';
 import { NoticiesComponent } from './pages/noticies/noticies.component';
 import { RegisterComponent } from './pages/register/register.component';
 import { BotigaComponent } from './pages/botiga/botiga.component';
-import { EventsComponent } from './pages/noticies/events/events.component';
-import { PatchesComponent } from './pages/noticies/patches/patches.component';
-import { EsportsComponent } from './pages/noticies/esports/esports.component';
 import { MediaComponent } from './pages/media/media.component';
 import { HttpClient, HttpHandler, HttpHeaders } from '@angular/common/http';
 import { HttpClientModule } from '@angular/common/http';
@@ -70,7 +67,7 @@ const materialModules = [
   MatDialogModule,
   MatDatepickerModule,
   MatNativeDateModule,
-  MatSelectModule
+  MatSelectModule,
 ];
 
 
@@ -81,9 +78,6 @@ const materialModules = [
     NoticiesComponent,
     RegisterComponent,
     BotigaComponent,
-    EventsComponent,
-    PatchesComponent,
-    EsportsComponent,
     MediaComponent,
     TopNavbarComponent,
     IniciComponent,

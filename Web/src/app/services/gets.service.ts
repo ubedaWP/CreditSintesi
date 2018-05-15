@@ -75,4 +75,7 @@ export class GetsService {
     return this.httpClient.get(this.dataService.baseIP + "digitalTags=" + tag1 + "/" + tag2);
   }
 
+  getNoticies(category){
+    return this.httpClient.get(this.dataService.baseIP + "newsCategory=" + category);
+  }
 }

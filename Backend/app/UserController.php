@@ -156,4 +156,11 @@ class UserController extends Controller
         return $data;
     }
 
+    public function getNewsData(Request $request, $categoria){
+        $data=DB::select('select * from NOTICIES where Categoria = ?', [$categoria]);
+        if(count($data) > 0){
+            return $data;
+        }
+    }
+
 }
