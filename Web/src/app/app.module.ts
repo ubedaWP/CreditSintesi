@@ -43,6 +43,7 @@ import { IniciComponent } from './pages/inici/inici.component';
 import { ProducteComponent } from './pages/botiga/producte/producte.component';
 import { NewsSingularComponent } from './pages/noticies/news-singular/news-singular.component';
 import { FooterComponent } from './pages/footer/footer.component';
+import { AddNoticiaComponent } from './pages/noticies/add-noticia/add-noticia.component';
 
 
 //PAGE ROUTES
@@ -88,7 +89,8 @@ const materialModules = [
     MatSnackBarContainer,
     ProducteComponent,
     NewsSingularComponent,
-    FooterComponent
+    FooterComponent,
+    AddNoticiaComponent
   ],
   imports: [
     BrowserModule,
