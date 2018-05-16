@@ -1,0 +1,57 @@
+/* Style the video: 100% width and height to cover the entire window */
+#myVideo {
+   position: static;
+   right: 0;
+   bottom: 0;
+   min-width: 100%;
+   min-height: 100%;
+}
+
+/* Add some content at the bottom of the video/page */
+.noticies {
+   position: static;
+   bottom: 0;
+   background: rgba(0, 0, 0, 0.5);
+   color: #f1f1f1;
+   width: 100%;
+   padding: 20px;
+}
+
+.row{
+  border-bottom-style: solid;
+  border-bottom-width: medium;
+  border-bottom-color: black;
+}
+
+h2 {
+    font-size: 32px;
+    font-weight: bolder;
+    font-color: white;
+}
+
+.contingut {
+  text-align:center;
+  padding-left: 20%;
+  padding-right: 20%;
+  padding-top: 5%;
+  padding-bottom: 5%;
+  color: white;
+}
+
+.contingut1 {
+    background-image: url("http://sm.ign.com/ign_hu/screenshot/default/wow-banner_5k5q.jpg");
+    background-repeat:no-repeat;
+    background-size: cover;
+    font-size: 15px;
+    font-weight: bold;
+    color: white;
+}
+
+.contingut2 {
+    background-image: url("https://www.wallpaperup.com/uploads/wallpapers/2014/11/11/513371/35d018b89fb365ad8b59985a29b58527-700.jpg");
+    background-repeat:no-repeat;
+    background-size: cover;
+    font-size: 15px;
+    font-weight: bold;
+    color: white;
+}
