@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { GetsService } from '../../services/gets.service';
 
+
 @Component({
   selector: 'app-noticies',
   templateUrl: './noticies.component.html',
@@ -8,7 +9,8 @@ import { GetsService } from '../../services/gets.service';
 })
 export class NoticiesComponent implements OnInit {
 
-  constructor(private getService: GetsService) { }
+  constructor(private getService: GetsService) { 
+  }
 
   public news;
 

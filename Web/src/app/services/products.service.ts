@@ -1,11 +1,18 @@
 import { Injectable } from '@angular/core';
+import * as pdfMake from 'pdfmake/build/pdfmake';
+import * as pdfFonts from 'pdfmake/build/vfs_fonts';
 
 @Injectable()
 export class ProductsService {
 
   public products = [];
 
-  constructor() { }
+  constructor() { 
+    //called first time before the ngOnInit()
+    pdfMake.vfs = pdfFonts.pdfMake.vfs;
+    var dd = { content: 'CONTINGUT PDF' };
+    // pdfMake.createPdf(dd).download();
+  }
 
 
 
@@ -16,5 +23,7 @@ export class ProductsService {
   getProducts(){
     return this.products;
   }
+
+
 
 }
