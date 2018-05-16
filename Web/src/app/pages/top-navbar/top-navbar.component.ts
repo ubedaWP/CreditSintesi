@@ -30,6 +30,7 @@ export class TopNavbarComponent implements OnInit {
   private avatar: string;
   private cart: any[];
   private isCartOn: boolean;
+  private botoFactura: boolean;
 
   @ViewChild('ErrorLogin') private errorLogin: SwalComponent;
   @ViewChild('SuccessLogin') private successLogin: SwalComponent;
@@ -42,9 +43,8 @@ export class TopNavbarComponent implements OnInit {
     this.setUserName();
     this.setAvatar();
     this.setCart();
+    this.setBotoFactura();
   }
-
-  
 
   setIsOn(){
     if (this.publicService.getIsOn() == 'true'){
@@ -107,6 +107,7 @@ export class TopNavbarComponent implements OnInit {
         if (data != null){
           this.user = data[0].Usuari;
           this.password = data[0].Contrasenya;
+          this.publicService.setIdUser(data[0].IDUsr);
           this.publicService.setIsOn('true');
           this.publicService.setUserName(this.user);
           this.publicService.setAvatar(data[0].Avatar);
@@ -123,7 +124,7 @@ export class TopNavbarComponent implements OnInit {
             this.setIsAdmin();
           }
           this.successLogin.show();
-          this.router.navigate(['/home']);
+          location.reload();
           }
         else{
           this.errorLogin.show();
@@ -142,6 +143,15 @@ export class TopNavbarComponent implements OnInit {
 
   newProduct( name, image, price){
     this.cart.push({ name: name, image:image, price:price });
+  }
+
+  setBotoFactura(){
+    if(this.cart.length > 0){
+      this.botoFactura = true;
+    }
+    else if(this.cart.length == 0){
+      this.botoFactura = false;
+    }
   }
 
   // deleteProductFromCart(name){
@@ -164,6 +174,11 @@ export class TopNavbarComponent implements OnInit {
 
   getProducts(){
     this.cart = this.productService.getProducts();
+    this.setBotoFactura();
+  }
+
+  getFactura(){
+    this.productService.getFactura();
   }
   
 }

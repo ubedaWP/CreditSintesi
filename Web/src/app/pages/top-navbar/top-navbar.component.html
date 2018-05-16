@@ -34,6 +34,9 @@
                         </form>
                         <i class="fas fa-times-circle" (click)="deleteProductFromCart(name.value)"></i> -->
                      </a>
+                     <a *ngIf="botoFactura" class="cartItem">
+                        <button class="btn btn-outline-danger waves-light invoiceButton" mdbWavesEffect (click)="getFactura()"><i class="far fa-file-alt"></i> Genera Factura</button>
+                     </a>
                 </div>
             </div>                     
         </span>

@@ -21,6 +21,7 @@
 //WEB SERVICES
 Route::group(['middleware'=>'cors'], function(){
     Route::get('/usersRaw', 'UserController@getUsers');
+    Route::get('/userID={id}', 'UserController@getUserById');
     Route::get('/user/user={user}&password={password}', 'UserController@getUser');
     Route::get('/registreProva/user={user}&password={password}&email={email}&nom={nom}&dataNaixament={dataNaixament}&provincia={provincia}&nif={nif}&avatar={avatar}&admin={admin}', 'UserController@addUser');
     Route::get('/user={user}', 'UserController@userExists');

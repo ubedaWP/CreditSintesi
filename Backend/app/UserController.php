@@ -32,6 +32,13 @@ class UserController extends Controller
         }
     }
 
+    public function getUserById(Request $request, $id){
+        $data=DB::select('select * from USUARIS where IDUsr = ?', [$id]);
+        if (count($data) > 0){
+            return $data;
+        }
+    }
+
     public function userExists(Request $request, $user){
         $data=DB::select('select * from USUARIS where USUARIS.Usuari = ?', [$user]);
         if (count($data) > 0){

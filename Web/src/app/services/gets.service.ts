@@ -11,6 +11,10 @@ export class GetsService {
     return this.httpClient.get(this.dataService.baseIP + "usersRaw");
   }
 
+  getUserById(id: string){
+    return this.httpClient.get(this.dataService.baseIP + "userID=" + id);
+  }
+
   getLogin(user: string, password: string){
     return this.httpClient.get(this.dataService.baseIP + "user/user=" + user + "&password=" + password);
   }

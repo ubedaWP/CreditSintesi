@@ -12,6 +12,7 @@ export class PublicService implements OnInit{
   }
 
   ngOnInit(){
+    this._cookieService.put('idUser', '');
     this._cookieService.put('isAdmin', 'false');
     this._cookieService.put('isOn', 'false');
     this._cookieService.put('user', '');
@@ -25,6 +26,14 @@ export class PublicService implements OnInit{
 
   public getIsOn(){
     return this._cookieService.get('isOn');
+  }
+
+  public setIdUser(idUser: string){
+    this._cookieService.put('idUser', idUser);
+  }
+
+  public getIdUser(){
+    return this._cookieService.get('idUser');
   }
 
   public setIsAdmin(isAdmin: string){
@@ -60,6 +69,7 @@ export class PublicService implements OnInit{
   }
 
   public logout(){
+    this._cookieService.put('idUser', '');
     this._cookieService.put('user', '');
     this._cookieService.put('isAdmin', 'false');
     this._cookieService.put('isOn', 'false');
