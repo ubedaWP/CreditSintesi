@@ -20,6 +20,7 @@ import { Overlay, ScrollStrategyOptions, ScrollDispatcher, ViewportRuler, Overla
 import { BreakpointObserver, MediaMatcher } from '@angular/cdk/layout';
 import { MatDialogModule } from '@angular/material/dialog';
 import { SweetAlert2Module, SwalComponent } from '@toverux/ngx-sweetalert2';
+import { FileUploadModule } from 'primeng/fileupload';
 
 //SERVICES
 import { DataService } from './services/data-service.service';
@@ -55,7 +56,8 @@ const appRoutes: Routes = [
   { path: 'register', component: RegisterComponent },
   { path: 'home', component: IniciComponent},
   { path: 'product/:type/:id', component: ProducteComponent },
-  { path: 'news/:id', component: NewsSingularComponent }
+  { path: 'news/:id', component: NewsSingularComponent },
+  { path: 'addNew', component: AddNoticiaComponent },
 ];
 
 const materialModules = [
@@ -73,6 +75,7 @@ const materialModules = [
   MatDatepickerModule,
   MatNativeDateModule,
   MatSelectModule,
+  FileUploadModule
 ];
 
 
