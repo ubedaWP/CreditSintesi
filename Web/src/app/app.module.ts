@@ -30,6 +30,7 @@ import { GetsService } from './services/gets.service';
 import { CookieService } from 'angular2-cookie/services/cookies.service';
 import { InsertsService } from './services/inserts.service';
 import { ProductsService } from './services/products.service';
+import { UploadService } from './services/upload-service.service';
 
 //COMPONENTS
 import { AppComponent } from './app.component';
@@ -120,6 +121,7 @@ const materialModules = [
     CookieService,
     InsertsService,
     ProductsService,
+    UploadService,
     HttpClient,
     MatSnackBar,
     Overlay,

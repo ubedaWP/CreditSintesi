@@ -41,4 +41,5 @@ Route::group(['middleware'=>'cors'], function(){
     Route::get('/fisicalTags={tag1}/{tag2}', 'UserController@getFisicalTags');
     Route::get('/newsCategory={categoria}', 'UserController@getNewsData');
     Route::get('/news/Id={id}', 'UserController@getNewsById');
+    Route::get('/addNew/{text1}/{text2}/{categoria}/{titol}/{resum}/{imatgePortada}/{imatgeMitg}', 'UserController@uploadFile');
 });
