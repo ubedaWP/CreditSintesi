@@ -19,7 +19,7 @@ export class NoticiesComponent implements OnInit {
   public buttonEvents;
   public buttonComunitat;
   public buttonBotiga;
-  public buttonAltres
+  public buttonAltres;
 
   ngOnInit() {
     this.getNovetats();
@@ -39,7 +39,6 @@ export class NoticiesComponent implements OnInit {
     this.getService.getNoticies('Novedades').subscribe(
       data=>{
         this.news = data;
-        console.log(this.news);
       },
       error=>{
         console.log(error);

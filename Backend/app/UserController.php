@@ -7,6 +7,7 @@ use Illuminate\Support\Facades\URL;
 use Illuminate\Support\Facades\DB;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\Hash;
 
 class UserController extends Controller
 {
@@ -51,7 +52,7 @@ class UserController extends Controller
         DB::table('USUARIS')->insert([
             [
             'Usuari'=>$user,
-            'Contrasenya'=>$password,
+            'Contrasenya'=>Hash::make($password),
             'Email'=>$email,
             'Nom'=>$nom,
             'Edat'=>$edat,
@@ -177,5 +178,38 @@ class UserController extends Controller
             return $data;
         }
     }
+    
+    public function uploadFile(Request $request, $text1, $text2, $categoria, $titol, $resum, $imatgePortada, $imatgeMitg){
+        $data=DB::table('NOTICIES')->insert([
+            'Text1'=>$text1,
+            'Text2'=>$text2,
+            'Categoria'=>$categoria,
+            'Titol'=>$titol,
+            'Resum'=>$resum,
+            'ImatgePortada'=>$imatgePortada,
+            'ImatgeMitg'=>$imatgeMitg
+        ]);
+    }
+    
+    public function uploadProductFisic(Request $request, $nom, $descripcio, $dExtensa, $imatge, $imatgeGallery, $price){
+        $data=DB::table('PRODUCTES_FISICS')->insert([
+            'Producte'=>$nom,
+            'Descripcio'=>$descripcio,
+            'DescripcioExtensa'=>$dExtensa,
+            'Imatge'=>$imatge,
+            'ImatgeGaleria'=>$imatgeGallery,
+            'Preu'=>$price
+        ]);
+    }
 
+    public function uploadProductDigital(Request $request, $nom, $descripcio, $dExtensa, $imatge, $imatgeGallery, $price){
+        $data=DB::table('PRODUCTES_DIGITALS')->insert([
+            'Producte'=>$nom,
+            'Descripcio'=>$descripcio,
+            'DescripcioExtensa'=>$dExtensa,
+            'Imatge'=>$imatge,
+            'ImatgeGaleria'=>$imatgeGallery,
+            'Preu'=>$price
+        ]);
+    }
 }

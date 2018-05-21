@@ -20,6 +20,7 @@ import { Overlay, ScrollStrategyOptions, ScrollDispatcher, ViewportRuler, Overla
 import { BreakpointObserver, MediaMatcher } from '@angular/cdk/layout';
 import { MatDialogModule } from '@angular/material/dialog';
 import { SweetAlert2Module, SwalComponent } from '@toverux/ngx-sweetalert2';
+import { FileUploadModule } from 'primeng/fileupload';
 
 //SERVICES
 import { DataService } from './services/data-service.service';
@@ -29,6 +30,7 @@ import { GetsService } from './services/gets.service';
 import { CookieService } from 'angular2-cookie/services/cookies.service';
 import { InsertsService } from './services/inserts.service';
 import { ProductsService } from './services/products.service';
+import { UploadService } from './services/upload-service.service';
 
 //COMPONENTS
 import { AppComponent } from './app.component';
@@ -44,6 +46,7 @@ import { ProducteComponent } from './pages/botiga/producte/producte.component';
 import { NewsSingularComponent } from './pages/noticies/news-singular/news-singular.component';
 import { FooterComponent } from './pages/footer/footer.component';
 import { AddNoticiaComponent } from './pages/noticies/add-noticia/add-noticia.component';
+import { AddProductComponent } from './pages/botiga/add-product/add-product.component';
 
 
 //PAGE ROUTES
@@ -55,7 +58,9 @@ const appRoutes: Routes = [
   { path: 'register', component: RegisterComponent },
   { path: 'home', component: IniciComponent},
   { path: 'product/:type/:id', component: ProducteComponent },
-  { path: 'news/:id', component: NewsSingularComponent }
+  { path: 'news/:id', component: NewsSingularComponent },
+  { path: 'addNew', component: AddNoticiaComponent },
+  { path: 'addNewProducte', component: AddProductComponent },
 ];
 
 const materialModules = [
@@ -73,6 +78,7 @@ const materialModules = [
   MatDatepickerModule,
   MatNativeDateModule,
   MatSelectModule,
+  FileUploadModule
 ];
 
 
@@ -90,7 +96,8 @@ const materialModules = [
     ProducteComponent,
     NewsSingularComponent,
     FooterComponent,
-    AddNoticiaComponent
+    AddNoticiaComponent,
+    AddProductComponent
   ],
   imports: [
     BrowserModule,
@@ -117,6 +124,7 @@ const materialModules = [
     CookieService,
     InsertsService,
     ProductsService,
+    UploadService,
     HttpClient,
     MatSnackBar,
     Overlay,

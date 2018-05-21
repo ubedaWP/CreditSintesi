@@ -22,7 +22,7 @@
     <br>
     <div *ngFor="let new of news" class="row noticia">
         <div class="col-sm-4">
-            <a [routerLink]="['/news', new.IDNot]"><img src="../../../assets/noticies/{{new.IDNot}}/{{new.ImatgePortada}}" alt="{{new.Titol}}" class="portada"></a>
+            <a [routerLink]="['/news', new.IDNot]"><img src="../../../assets/noticies/{{new.ImatgePortada}}" alt="{{new.Titol}}" class="portada"></a>
         </div>
         <div class="col-sm-8 textResum">
             <a [routerLink]="['/news', new.IDNot]"><h2>{{new.Titol}}</h2></a><br>

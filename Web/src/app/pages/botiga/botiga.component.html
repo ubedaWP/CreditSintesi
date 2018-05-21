@@ -32,9 +32,9 @@
           <li><mat-checkbox (change)="checkTagDigital($event)">DIGITAL</mat-checkbox></li>
           <li><mat-checkbox (change)="checkTagFisic($event)">FÍSIC</mat-checkbox></li>
         </ul><br>
-        <h3>Tags</h3>
+        <h3>Categories dels Productes</h3>
         <mat-form-field>
-          <mat-select placeholder="Tags" [formControl]="tagList1">
+          <mat-select placeholder="Categoria 1" [formControl]="tagList1">
             <mat-option *ngFor="let tag of tags" [value]="tag.Tag">
               {{ tag.Tag }}
             </mat-option>
@@ -42,7 +42,7 @@
         </mat-form-field>
         <br><br><br><br><br><br>
         <mat-form-field>
-          <mat-select placeholder="Tags" [formControl]="tagList2">
+          <mat-select placeholder="Categoria 2" [formControl]="tagList2">
             <mat-option *ngFor="let tag of tags" [value]="tag.Tag">
               {{ tag.Tag }}
             </mat-option>
@@ -134,4 +134,4 @@
   </div>
 </div>  
 <!-- MODALS -->
-<swal #addProduct title="Afegit!" text="S'ha afegit correctament el producte al Carro" type="success"></swal> 
+<swal #addProduct title="Afegit!" text="S'ha afegit correctament el producte al Carro" type="success"></swal>
