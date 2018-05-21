@@ -1,16 +1,35 @@
+<body>
 <div class="container-fluid video">
-  <div class="row">
+<div class="row">
+
   <video autoplay muted loop id="myVideo">
-  <source src="https://bnetcmsus-a.akamaihd.net/cms/template_resource/pb/PBDOJHUUIDIL1459385840550.mp4" type="video/mp4">
-  Your browser does not support HTML5 video.
+    <source src="https://bnetcmsus-a.akamaihd.net/cms/template_resource/pb/PBDOJHUUIDIL1459385840550.mp4" type="video/mp4">
+      Your browser does not support HTML5 video.
   </video>
-  <!-- Optional: some overlay text to describe the video -->
-  <div class="noticies">
-    <h1>Últimes notícies</h1>
-    <p>Lorem ipsum...</p>
+
+  <!-- Text sobre video -->
+  <div class="overlay">
+      <h1>World de Warcraft</h1>
+        <h2>Estaves destinat per aquest món.</h2>
+        <button type="submit">Jugar</button>
   </div>
 
+  <!-- Noticies Video -->
+  <div class="noticies">
+    <h3>Últimes notícies</h3>
+    <p>Lorem ipsum...
+    Lorem ipsum...<br>
+  Lorem ipsum...<br>
+Lorem ipsum...<br>
+Lorem ipsum...<br>
+Lorem ipsum...<br>
+Lorem ipsum...<br>
+Lorem ipsum...</p>
+
   </div>
+
+</div>
+</div>
 
 
 <div class="row">
@@ -25,10 +44,75 @@
 <div class="row">
   <div class="contingut2">
     <div class="contingut">
-      <h2>Forja el teu destí</h2>
-      <p>Jura lleialtat a una de les dues faccions en guerra, l'Aliança o la Horda. Uneix-te o crea un grup d'aventurers com tu, i enfronta't als enemics d'Azeroth com una de les dotze classes úniques i tretze races disponibles. Puja de nivell i acumula poder al teu propi ritme.</p>
+      <h2>Un regne sense límits</h2>
+      <p>Exploreu el món d'Azeroth, un lloc d'aventura i acció sense parar. Experimenta històries i missions èpiques. Planta cara a dracs mortals, troba artefactes mítics, o simplement visita un racó agradable i tranquil del món per per practicar una mica de pesca.</p>
     </div>
   </div>
 </div>
 
+<div class="row">
+    <div class="col-lg">
+      <div class="contingut3">
+        <img src="https://bnetcmsus-a.akamaihd.net/cms/template_resource/GJP5D4W9HLGG1458162657931.jpg" alt="" width="100%" height="100%">
+      </div>
+      <div class="contingut-doble">
+        <h4>Jugador contra entorn</h4>
+        <h3>El botí de guerra</h3>
+        <p>Les masmorres ocultes per tot el món, enfronten a aquells que s'atreveixen a endinsar s'hi, contra les criatures i més atroçes d'Azeroth. Tens el que es necessita per triomfar i reclamar les relíquies ancestrals que posseeixen?</p>
+      </div>
+    </div>
+    <div class="col-lg">
+      <div class="contingut4">
+        <img src="https://bnetcmsus-a.akamaihd.net/cms/template_resource/ESPAQ9ULC5QE1458162658321.jpg" alt="" width="100%" height="100%">
+      </div>
+      <div class="contingut-doble">
+        <h4>Jugador contra jugador</h4>
+        <h3>Conflicte despietat</h3>
+        <p>Coneix als teus enemics en el camp de batalla i porta als teus amics perquè s'uneixin al combat! Competeix en camps de batalla únics amb objectius establerts, o lluita fins al final per la glòria i l'honor a l'Arena de gladiadors.</p>
+      </div>
+    </div>
 </div>
+
+
+
+<!--Carousel Wrapper-->
+<mdb-carousel [isControls]="true" class="carousel slide carousel-fade" [animation]="'fade'">
+    <!--First slide-->
+    <mdb-slide>
+        <div class="view">
+            <img class="d-block w-100" src="http://www.allmmorpg.ru/wp-content/uploads/2018/01/12611-allied-race-character-creation-screen-requirements.jpg" alt="First slide">
+            <div class="mask rgba-black-light waves-light" mdbWavesEffect></div>
+        </div>
+        <div class="carousel-caption">
+            <h3 class="h3-responsive">Light mask</h3>
+            <p>First text</p>
+        </div>
+    </mdb-slide>
+    <!--/First slide-->
+    <!--Second slide-->
+    <mdb-slide>
+        <div class="view">
+            <img class="d-block w-100" src="https://bnetcmsus-a.akamaihd.net/cms/template_resource/5P49VFUZVC7F1522889989662.jpg" alt="Second slide">
+            <div class="mask rgba-black-strong waves-light" mdbWavesEffect></div>
+        </div>
+        <div class="carousel-caption">
+            <h3 class="h3-responsive">Strong mask</h3>
+            <p>Secondary text</p>
+        </div>
+    </mdb-slide>
+    <!--/Second slide-->
+    <!--Third slide-->
+    <mdb-slide>
+        <div class="view">
+            <img class="d-block w-100" src="https://bnetcmsus-a.akamaihd.net/cms/template_resource/5P49VFUZVC7F1522889989662.jpg" alt="Third slide">
+            <div class="mask rgba-black-slight waves-light" mdbWavesEffect></div>
+        </div>
+        <div class="carousel-caption">
+            <h3 class="h3-responsive">Slight mask</h3>
+            <p>Third text</p>
+        </div>
+    </mdb-slide>
+    <!--/Third slide-->
+</mdb-carousel>
+<!--/.Carousel Wrapper-->
+</body>

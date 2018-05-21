@@ -7,51 +7,127 @@
    min-height: 100%;
 }
 
+body{
+  background-color: #190a00;
+}
+
+.overlay {
+    position: absolute;
+    top:40%;
+    left:25%;
+    margin: auto;
+    z-index:1;
+    color: white;
+    align-items: center;
+    text-align: center;
+}
+
 /* Add some content at the bottom of the video/page */
 .noticies {
-   position: static;
+   position: sticky;
    bottom: 0;
-   background: rgba(0, 0, 0, 0.5);
-   color: #f1f1f1;
+   background: rgba(25, 10, 0, 0.5);
+   color: white;
    width: 100%;
    padding: 20px;
+   z-index: 1
 }
 
 .row{
   border-bottom-style: solid;
-  border-bottom-width: medium;
+  border-bottom-width: thick;
   border-bottom-color: black;
 }
 
+h1 {
+    font-size: 60px;
+    font-weight: bolder;
+    color: white;
+}
+
 h2 {
+    font-size: 48px;
+    font-weight: bolder;
+    color: white;
+}
+
+h3 {
     font-size: 32px;
     font-weight: bolder;
-    font-color: white;
+    color: white;
+}
+
+.col-lg {
+  border-right-style: solid;
+  border-right-width: medium;
+  border-color: black;
+  padding: 0px;
+  margin: 0px;
 }
 
 .contingut {
   text-align:center;
-  padding-left: 20%;
-  padding-right: 20%;
-  padding-top: 5%;
+  //padding-left: 20vh;
+  //padding-right: 20vh;
+  padding-top: 30vh;
+  //padding-bottom: 20vh;
+  height: 80vh;
+  width: 50%;
+  margin: auto;
+  color: white;
+}
+
+.contingut-doble {
+  text-align:center;
+  background-color: #190a00;
+  padding-left: 5%;
+  padding-right: 5%;
+  margin-top: 10%;
   padding-bottom: 5%;
   color: white;
 }
 
 .contingut1 {
-    background-image: url("http://sm.ign.com/ign_hu/screenshot/default/wow-banner_5k5q.jpg");
+    background-image: linear-gradient( rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5) ), url("https://bnetcmsus-a.akamaihd.net/cms/gallery/DSG8UJXQ9XAA1522934529298.jpg");
     background-repeat:no-repeat;
     background-size: cover;
-    font-size: 15px;
+    font-size: 20px;
     font-weight: bold;
     color: white;
+    height: 80vh;
 }
 
 .contingut2 {
-    background-image: url("https://www.wallpaperup.com/uploads/wallpapers/2014/11/11/513371/35d018b89fb365ad8b59985a29b58527-700.jpg");
+    background-image: url("https://bnetcmsus-a.akamaihd.net/cms/gallery/COT8M2SUIAXT1509668970805.jpg");
     background-repeat:no-repeat;
     background-size: cover;
+    font-size: 20px;
+    font-weight: bold;
+    height: 80vh;
+}
+
+.contingut3 {
+    //background-image: url("https://bnetcmsus-a.akamaihd.net/cms/template_resource/GJP5D4W9HLGG1458162657931.jpg");
+    //background-repeat: no-repeat;
+    //background-size: cover;
+    margin-bottom: 5vh;
     font-size: 15px;
     font-weight: bold;
     color: white;
+    float: left;
+}
+
+.contingut4 {
+    //background-image: url("https://bnetcmsus-a.akamaihd.net/cms/template_resource/ESPAQ9ULC5QE1458162658321.jpg");
+    //background-repeat: no-repeat;
+    //background-size: cover;
+    margin-bottom: 5vh;
+    font-size: 15px;
+    font-weight: bold;
+    color: white;
+    float: left;
+}
+
+.view{
+  height: 70vh;
 }
