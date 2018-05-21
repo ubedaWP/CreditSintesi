@@ -3,11 +3,10 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: May 21, 2018 at 04:00 PM
+-- Generation Time: May 21, 2018 at 05:02 PM
 -- Server version: 5.7.22-0ubuntu0.16.04.1
 -- PHP Version: 7.1.17-1+ubuntu16.04.1+deb.sury.org+1
 
-SET FOREIGN_KEY_CHECKS=0;
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
 
@@ -303,12 +302,12 @@ INSERT INTO `TAGS_PRODUCTES_FISICS` (`ID`, `IDTag`, `IDProd`) VALUES
 CREATE TABLE `USUARIS` (
   `IDUsr` int(11) NOT NULL,
   `Usuari` varchar(20) COLLATE utf8_spanish_ci NOT NULL,
-  `Contrasenya` varchar(30) COLLATE utf8_spanish_ci NOT NULL,
+  `Contrasenya` varchar(200) COLLATE utf8_spanish_ci NOT NULL,
   `Avatar` text COLLATE utf8_spanish_ci,
   `Email` varchar(50) COLLATE utf8_spanish_ci NOT NULL,
   `Nom` varchar(100) COLLATE utf8_spanish_ci DEFAULT NULL,
   `Edat` date DEFAULT NULL,
-  `Pais` varchar(30) COLLATE utf8_spanish_ci DEFAULT NULL,
+  `Provincia` varchar(30) COLLATE utf8_spanish_ci DEFAULT NULL,
   `Nif` varchar(15) COLLATE utf8_spanish_ci DEFAULT NULL,
   `Admin` tinyint(1) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
@@ -321,10 +320,11 @@ CREATE TABLE `USUARIS` (
 -- Dumping data for table `USUARIS`
 --
 
-INSERT INTO `USUARIS` (`IDUsr`, `Usuari`, `Contrasenya`, `Avatar`, `Email`, `Nom`, `Edat`, `Pais`, `Nif`, `Admin`) VALUES
+INSERT INTO `USUARIS` (`IDUsr`, `Usuari`, `Contrasenya`, `Avatar`, `Email`, `Nom`, `Edat`, `Provincia`, `Nif`, `Admin`) VALUES
 (1, 'Admin', '1234', 'Admin.png', 'admin@prova.com', 'usuari', '1995-02-24', NULL, NULL, 1),
 (2, 'Usuari2', '1234', 'User1.png', 'usuari2@prova.com', NULL, NULL, NULL, '123456789', 0),
-(6, 'Usuari1', '1234', 'User2.png', 'usuari1@prova.com', 'Joan User', NULL, 'Espanya', '1234567890', 0);
+(6, 'Usuari1', '1234', 'User2.png', 'usuari1@prova.com', 'Joan User', NULL, 'Espanya', '1234567890', 0),
+(8, 'uzuario', '$2y$10$PIqh2XlupVp6YxjfvAUydOiYUk4WFvf0d8BA3f9FEtvaCFsGGeMF.', 'User1.png', '123@123', 'uzuario123', '2018-05-15', 'Tarragona', '39605125S', 0);
 
 --
 -- Indexes for dumped tables
@@ -421,12 +421,12 @@ ALTER TABLE `NOTICIES`
 -- AUTO_INCREMENT for table `PRODUCTES_DIGITALS`
 --
 ALTER TABLE `PRODUCTES_DIGITALS`
-  MODIFY `IDProd_Digital` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `IDProd_Digital` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 --
 -- AUTO_INCREMENT for table `PRODUCTES_FISICS`
 --
 ALTER TABLE `PRODUCTES_FISICS`
-  MODIFY `IDProd_Fisic` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `IDProd_Fisic` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 --
 -- AUTO_INCREMENT for table `TAGS`
 --
@@ -446,8 +446,7 @@ ALTER TABLE `TAGS_PRODUCTES_FISICS`
 -- AUTO_INCREMENT for table `USUARIS`
 --
 ALTER TABLE `USUARIS`
-  MODIFY `IDUsr` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;SET FOREIGN_KEY_CHECKS=1;
-
+  MODIFY `IDUsr` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;

@@ -7,6 +7,7 @@ use Illuminate\Support\Facades\URL;
 use Illuminate\Support\Facades\DB;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\Hash;
 
 class UserController extends Controller
 {
@@ -51,7 +52,7 @@ class UserController extends Controller
         DB::table('USUARIS')->insert([
             [
             'Usuari'=>$user,
-            'Contrasenya'=>$password,
+            'Contrasenya'=>Hash::make($password),
             'Email'=>$email,
             'Nom'=>$nom,
             'Edat'=>$edat,

@@ -23,6 +23,7 @@ export class AddProductComponent implements OnInit {
   constructor(private httpClient: HttpClient, private uploadService: UploadService) { }
 
   ngOnInit() {
+    
   }
 
   getErrorMessageText(){

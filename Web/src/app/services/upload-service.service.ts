@@ -18,14 +18,12 @@ export class UploadService {
   uploadProductFisic(nom, descripcio, descripcioExtensa, imatge, imatgeGallery, price){
     const url = this.dataService.baseIP + "addProducteFisic/" + nom + "/" + descripcio + "/" + descripcioExtensa + 
     "/" + imatge + "/" + imatgeGallery + "/" + price
-    console.log(url);
     return this.httpClient.get(url).subscribe();
   }
 
   uploadProductDigital(nom, descripcio, descripcioExtensa, imatge, imatgeGallery, price){
     const url = this.dataService.baseIP + "addProducteDigital/" + nom + "/" + descripcio + "/" + descripcioExtensa + 
     "/" + imatge + "/" + imatgeGallery + "/" + price
-    console.log(url);
     return this.httpClient.get(url).subscribe();
   }
 }
