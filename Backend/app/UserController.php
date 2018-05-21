@@ -188,5 +188,27 @@ class UserController extends Controller
             'ImatgePortada'=>$imatgePortada,
             'ImatgeMitg'=>$imatgeMitg
         ]);
-    }       
+    }
+    
+    public function uploadProductFisic(Request $request, $nom, $descripcio, $dExtensa, $imatge, $imatgeGallery, $price){
+        $data=DB::table('PRODUCTES_FISICS')->insert([
+            'Producte'=>$nom,
+            'Descripcio'=>$descripcio,
+            'DescripcioExtensa'=>$dExtensa,
+            'Imatge'=>$imatge,
+            'ImatgeGaleria'=>$imatgeGallery,
+            'Preu'=>$price
+        ]);
+    }
+
+    public function uploadProductDigital(Request $request, $nom, $descripcio, $dExtensa, $imatge, $imatgeGallery, $price){
+        $data=DB::table('PRODUCTES_DIGITALS')->insert([
+            'Producte'=>$nom,
+            'Descripcio'=>$descripcio,
+            'DescripcioExtensa'=>$dExtensa,
+            'Imatge'=>$imatge,
+            'ImatgeGaleria'=>$imatgeGallery,
+            'Preu'=>$price
+        ]);
+    }
 }

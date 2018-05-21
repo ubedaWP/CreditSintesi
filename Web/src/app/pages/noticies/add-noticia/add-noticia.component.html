@@ -4,6 +4,7 @@
             <h1>REGISTRE UNA NOVA NOTICIA</h1><br>
             <mat-form-field class="example-full-width">
                 <input matInput placeholder="Títol de la Noticia" value="" [formControl]="titol" required>
+                <mat-error *ngIf="text1.invalid">{{getErrorMessageText()}}</mat-error>
             </mat-form-field><br>
             <mat-form-field class="example-full-width">
                 <textarea matInput placeholder="Text principal de la Noticia" [formControl]="text1" required></textarea>

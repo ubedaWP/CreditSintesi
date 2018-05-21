@@ -10,15 +10,22 @@ export class UploadService {
 
 
   uploadNoticia(text1, text2, categoria, titol, resum, imatgeP, imatgeM){
-    return this.httpClient.get(
-      this.dataService.baseIP + "addNew/" + text1 + "/" + text2 + "/" + categoria + "/" + titol + "/" +
-      resum + "/" + imatgeP + "/" + imatgeM
-    ).subscribe();
+    const url = this.dataService.baseIP + "addNew/" + text1 + "/" + text2 + "/" + categoria + "/" + titol + "/" +
+    resum + "/" + imatgeP + "/" + imatgeM
+    return this.httpClient.get(url).subscribe();
   }
 
-  uploadProduct(){
-    return this.httpClient.get(
-      this.dataService.baseIP + "addProduct"
-    ).subscribe();
+  uploadProductFisic(nom, descripcio, descripcioExtensa, imatge, imatgeGallery, price){
+    const url = this.dataService.baseIP + "addProducteFisic/" + nom + "/" + descripcio + "/" + descripcioExtensa + 
+    "/" + imatge + "/" + imatgeGallery + "/" + price
+    console.log(url);
+    return this.httpClient.get(url).subscribe();
+  }
+
+  uploadProductDigital(nom, descripcio, descripcioExtensa, imatge, imatgeGallery, price){
+    const url = this.dataService.baseIP + "addProducteDigital/" + nom + "/" + descripcio + "/" + descripcioExtensa + 
+    "/" + imatge + "/" + imatgeGallery + "/" + price
+    console.log(url);
+    return this.httpClient.get(url).subscribe();
   }
 }

@@ -46,6 +46,7 @@ import { ProducteComponent } from './pages/botiga/producte/producte.component';
 import { NewsSingularComponent } from './pages/noticies/news-singular/news-singular.component';
 import { FooterComponent } from './pages/footer/footer.component';
 import { AddNoticiaComponent } from './pages/noticies/add-noticia/add-noticia.component';
+import { AddProductComponent } from './pages/botiga/add-product/add-product.component';
 
 
 //PAGE ROUTES
@@ -59,6 +60,7 @@ const appRoutes: Routes = [
   { path: 'product/:type/:id', component: ProducteComponent },
   { path: 'news/:id', component: NewsSingularComponent },
   { path: 'addNew', component: AddNoticiaComponent },
+  { path: 'addNewProducte', component: AddProductComponent },
 ];
 
 const materialModules = [
@@ -94,7 +96,8 @@ const materialModules = [
     ProducteComponent,
     NewsSingularComponent,
     FooterComponent,
-    AddNoticiaComponent
+    AddNoticiaComponent,
+    AddProductComponent
   ],
   imports: [
     BrowserModule,
