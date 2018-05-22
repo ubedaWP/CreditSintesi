@@ -16,13 +16,7 @@
             </li>
             <li class="nav-item">
                 <a class="nav-link" [routerLink]="['/shop']"><button mat-button class="hoverable">BOTIGA</button></a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" [routerLink]="['/addNew']"><button mat-button class="hoverable">Nova Noticia</button></a>
-            </li>      
-            <li class="nav-item">
-                <a class="nav-link" [routerLink]="['/addNewProducte']"><button mat-button class="hoverable">Nou Producte</button></a>
-            </li>  
+            </li> 
         </ul>
         <span class="navbar-text white-text" style="margin-right: 5%;" *ngIf="isCartOn">
             <!-- Split button -->
@@ -48,6 +42,17 @@
         </span>
         <span class="navbar-text white-text" *ngIf="isOn">
             <a class="nav-link" ><img class="avatar" src='../../../assets/avatars/{{avatar}}'></a>
+        </span>
+        <span class="navbar-text white-text" style="margin-right: 5%;" *ngIf="isAdmin">
+            <!-- Split button -->
+            <div class="btn-group" dropdown>
+                <button type="button" class="btn btn-info waves-light" mdbWavesEffect><i class="fas fa-cog"></i></button>
+                <button type="button" dropdownToggle class="btn btn-info dropdown-toggle dropdown-toggle-split px-3 waves-light" mdbWavesEffect></button>
+                <div class="dropdown-menu ajustes">
+                    <a class="dropdown-item" [routerLink]="['/addNewProducte']"><i class="fas fa-shopping-bag"></i> Nou Producte</a>
+                    <a class="dropdown-item" [routerLink]="['/addNew']"><i class="far fa-newspaper"></i> Nova noticia</a>
+                </div>
+            </div>                     
         </span>
         <span class="navbar-text white-text" style="margin-right: 5%;" *ngIf="isOn">
             <a class="logoutIcon" (click)="Logout()"><i class="fas fa-sign-out-alt"></i></a>

@@ -1,7 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { UploadService } from '../../../services/upload-service.service';
 import { FormControl, Validators, MinLengthValidator } from '@angular/forms';
+import { PublicService } from '../../../services/public.service';
+import { Router } from '@angular/router';
+import { SwalComponent } from '@toverux/ngx-sweetalert2';
 
 @Component({
   selector: 'app-add-noticia',
@@ -19,9 +22,15 @@ export class AddNoticiaComponent implements OnInit {
   imatgePortada = new FormControl('', [Validators.required]);
   imatgeMitg = new FormControl('', [Validators.required]);
 
-  constructor(private httpClient: HttpClient, private uploadService: UploadService) { }
+  @ViewChild('Afegit') private afegitModal: SwalComponent;
+
+  constructor(private httpClient: HttpClient, private uploadService: UploadService, private publicService: PublicService,
+              private router: Router) { }
 
   ngOnInit() {
+    if (this.publicService.getIsAdmin() == "false") {
+        this.router.navigate(['/home']);
+    }
   }
 
   getErrorMessageText(){
@@ -58,6 +67,7 @@ export class AddNoticiaComponent implements OnInit {
     }
     this.uploadService.uploadNoticia(this.text1.value, this.text2.value, this.categoria.value, this.titol.value,
     this.resum.value, this.imatgePortada.value, this.imatgeMitg.value);
+    this.afegitModal.show();
   }
 
 }

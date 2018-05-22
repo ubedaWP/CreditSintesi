@@ -28,7 +28,7 @@ class UserController extends Controller
     }
 
     public function getUser(Request $request, $user, $password){
-        $data=DB::select('select * from USUARIS where USUARIS.Usuari = ? and USUARIS.Contrasenya = ?', [$user, $password]);
+        $data=DB::select('select * from USUARIS where USUARIS.Usuari = ? and USUARIS.Contrasenya = ?', [$user, md5($password)]);
         if (count($data) > 0) {
             return $data;
         }
@@ -52,7 +52,7 @@ class UserController extends Controller
         DB::table('USUARIS')->insert([
             [
             'Usuari'=>$user,
-            'Contrasenya'=>Hash::make($password),
+            'Contrasenya'=>md5($password),
             'Email'=>$email,
             'Nom'=>$nom,
             'Edat'=>$edat,

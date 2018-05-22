@@ -1,3 +1,33 @@
-<p>
-  media works!
-</p>
+<div class="container">
+  <div class="row">
+    <h1>IMATGES</h1>
+    <div class="col-sm-12">
+        <div *ngFor="let image of images" class="image">
+          <img src="{{image.url}}" alt="">
+        </div>
+    </div>
+  </div>
+  <div class="row">
+    <h1>VÍDEOS</h1>
+    <div class="col-sm-12">
+      <div class="video">
+        <iframe class="videoFrame" src="https://www.youtube.com/embed/jSJr3dXZfcg" height="300px" width="500px" frameborder="0" allowfullscreen></iframe>
+      </div>
+      <div class="video">
+          <iframe class="videoFrame" src="https://www.youtube.com/embed/NPD6aOPGlIQ" height="300px" width="500px" frameborder="0" allowfullscreen></iframe>
+      </div>
+      <div class="video">
+          <iframe class="videoFrame" src="https://www.youtube.com/embed/E4dZYIhjdaM" height="300px" width="500px" frameborder="0" allowfullscreen></iframe>
+      </div>
+      <div class="video">
+          <iframe class="videoFrame" src="https://www.youtube.com/embed/P5MOhQ-26sM" height="300px" width="500px" frameborder="0" allowfullscreen></iframe>
+      </div>
+      <div class="video">
+          <iframe class="videoFrame" src="https://www.youtube.com/embed/n5JDOC16bqs" height="300px" width="500px" frameborder="0" allowfullscreen></iframe>
+      </div>
+      <div class="video">
+          <iframe class="videoFrame" src="https://www.youtube.com/embed/Td0pUwrBWjc" height="300px" width="500px" frameborder="0" allowfullscreen></iframe>
+      </div>
+    </div>
+  </div>
+</div>
