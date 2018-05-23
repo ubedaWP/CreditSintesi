@@ -19,7 +19,7 @@
           <input #price matInput value="{{productPrice}}">
         </mat-form-field>
       </form><br>
-      <b>Afegir al Carro &nbsp;<i class="fas fa-caret-right"></i>&nbsp;</b>
+      <b *ngIf="isCartOn">Afegir al Carro &nbsp;<i class="fas fa-caret-right"></i>&nbsp;</b>
       <button type="button" *ngIf="isCartOn" class="btn btn-cyan waves-light botoProducte" (click)="addNewProduct(name.value, image.value, price.value)" mdbWavesEffect>
           <i class="fas fa-cart-plus"></i>
       </button>

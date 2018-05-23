@@ -1,5 +1,5 @@
 <div class="container-fluid">
-  <h1>ÚLTIMES NOVETATS</h1> 
+  <h1><i class="far fa-star"></i> ÚLTIMES NOVETATS</h1> 
   <mdb-carousel [isControls]="true" class="carousel slide carousel-fade" [animation]="'fade'">
     <mdb-slide *ngFor="let product of lastProducts" >
       <div class="view">
@@ -15,7 +15,7 @@
 <div class="container">
   <div class="row">
     <div class="col-sm-12">
-      <h1>PRODUCTES</h1>
+      <h1><i class="fas fa-shopping-cart"></i> PRODUCTES</h1>
       <div class="md-form">
         <i class="fas fa-search prefix"></i>
         <input #searchFilter type="text" id="form1" placeholder="Buscar per nom de Producte" (keyup)="getProductsSearchFilter($event)">
