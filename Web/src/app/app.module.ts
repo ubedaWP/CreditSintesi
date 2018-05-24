@@ -21,6 +21,7 @@ import { BreakpointObserver, MediaMatcher } from '@angular/cdk/layout';
 import { MatDialogModule } from '@angular/material/dialog';
 import { SweetAlert2Module, SwalComponent } from '@toverux/ngx-sweetalert2';
 import { FileUploadModule } from 'primeng/fileupload';
+import { ImageZoomModule } from 'angular2-image-zoom';
 
 //SERVICES
 import { DataService } from './services/data-service.service';
@@ -78,7 +79,8 @@ const materialModules = [
   MatDatepickerModule,
   MatNativeDateModule,
   MatSelectModule,
-  FileUploadModule
+  FileUploadModule,
+  ImageZoomModule,
 ];
 
 
@@ -97,7 +99,7 @@ const materialModules = [
     NewsSingularComponent,
     FooterComponent,
     AddNoticiaComponent,
-    AddProductComponent
+    AddProductComponent,
   ],
   imports: [
     BrowserModule,

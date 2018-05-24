@@ -1,7 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { UploadService } from '../../../services/upload-service.service';
 import { FormControl, Validators, MinLengthValidator } from '@angular/forms';
+import { PublicService } from '../../../services/public.service';
+import { Router } from '@angular/router';
+import { SwalComponent } from '@toverux/ngx-sweetalert2';
 
 @Component({
   selector: 'app-add-product',
@@ -20,10 +23,15 @@ export class AddProductComponent implements OnInit {
   imatgeGallery = new FormControl('', [Validators.required]);
   price = new FormControl('', [Validators.required]);
 
-  constructor(private httpClient: HttpClient, private uploadService: UploadService) { }
+  @ViewChild('Afegit') private afegitModal: SwalComponent;
+
+  constructor(private httpClient: HttpClient, private uploadService: UploadService, private publicService: PublicService,
+              private router: Router) { }
 
   ngOnInit() {
-    
+    if (this.publicService.getIsAdmin() == "false") {
+      this.router.navigate(['/home']);
+    }
   }
 
   getErrorMessageText(){
@@ -48,6 +56,7 @@ export class AddProductComponent implements OnInit {
       this.uploadService.uploadProductDigital(this.nom.value, this.descripcio.value, this.descripcioExtensa.value,
         this.imatge.value, this.imatgeGallery.value, this.price.value);
     }
+    this.afegitModal.show();
   }
 
 

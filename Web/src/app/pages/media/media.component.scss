@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 ul { padding:0; width:780px; margin:20px auto}
   	li { display:inline;}
         .tn{
@@ -8,3 +9,34 @@ ul { padding:0; width:780px; margin:20px auto}
   	.modal-content {
 	    width: 670px !important;
 	}
+=======
+h1{
+    margin-left: 40%;
+    margin-bottom: 5%;
+    margin-top: 5%;
+    font-family: 'Rock Salt', cursive;
+}
+img{
+    width: 500px;
+    height: 300px;
+    border: 10px solid transparent;
+    border-image: url(../../../assets/altres/imageBorder.png) 30 round;
+}
+.image{
+    float: left;
+    margin-right: 1%;
+    margin-left: 1%;
+    margin-bottom: 2%;
+    margin-top: 2%;
+}
+.video{
+    float: left;
+    margin-left: 2%;
+    margin-right: 2%;
+    margin-top: 5%;
+}
+.videoFrame{
+    border: 5px solid transparent;
+    border-image: url(../../../assets/altres/imageBorder.png) 30 round;
+}
+>>>>>>> master

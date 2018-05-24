@@ -77,7 +77,7 @@ export class TopNavbarComponent implements OnInit {
       this.cart = [];
       this.isCartOn = true;
     }
-    else if(this.publicService.getCartIsOn() == 'false'){
+    else if(this.publicService.getCartIsOn() == 'false' || this.publicService.getIsAdmin() == 'true'){
       this.cart = [];
       this.isCartOn = false;
     }
@@ -111,16 +111,17 @@ export class TopNavbarComponent implements OnInit {
           this.publicService.setIsOn('true');
           this.publicService.setUserName(this.user);
           this.publicService.setAvatar(data[0].Avatar);
-          this.publicService.setCartIsOn('true');
           this.avatar = this.publicService.getAvatar();
           this.setIsOn();
           this.setCart();
           if (data[0].Admin == "1") {
             this.publicService.setIsAdmin('true');
+            this.publicService.setCartIsOn('false');
             this.setIsAdmin();
           }
           else if(data[0].Admin == "0"){
             this.publicService.setIsAdmin('false');
+            this.publicService.setCartIsOn('true');
             this.setIsAdmin();
           }
           this.successLogin.show();
