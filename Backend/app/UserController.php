@@ -18,7 +18,7 @@ class UserController extends Controller
      * @return Response
      */
     // public function show(Request $request)
-    // {   
+    // {
     //     $data=DB::select('select * from prova1');
     //     return $data;
     // }
@@ -134,33 +134,33 @@ class UserController extends Controller
     }
 
     public function getDigitalTag(Request $request, $tag1){
-        $data=DB::select('select distinct PRODUCTES_DIGITALS.* from PRODUCTES_DIGITALS,TAGS,TAGS_PRODUCTES_DIGITALS 
-        where PRODUCTES_DIGITALS.IDProd_Digital = TAGS_PRODUCTES_DIGITALS.IDProd 
-        and TAGS_PRODUCTES_DIGITALS.IDTag = TAGS.IDTag 
+        $data=DB::select('select distinct PRODUCTES_DIGITALS.* from PRODUCTES_DIGITALS,TAGS,TAGS_PRODUCTES_DIGITALS
+        where PRODUCTES_DIGITALS.IDProd_Digital = TAGS_PRODUCTES_DIGITALS.IDProd
+        and TAGS_PRODUCTES_DIGITALS.IDTag = TAGS.IDTag
         and TAGS.Tag in (?)',[$tag1]);
         return $data;
     }
 
     public function getFisicalTag(Request $request, $tag1){
-        $data=DB::select('select distinct PRODUCTES_FISICS.* from PRODUCTES_FISICS,TAGS,TAGS_PRODUCTES_FISICS 
-        where PRODUCTES_FISICS.IDProd_Fisic = TAGS_PRODUCTES_FISICS.IDProd 
-        and TAGS_PRODUCTES_FISICS.IDTag = TAGS.IDTag 
+        $data=DB::select('select distinct PRODUCTES_FISICS.* from PRODUCTES_FISICS,TAGS,TAGS_PRODUCTES_FISICS
+        where PRODUCTES_FISICS.IDProd_Fisic = TAGS_PRODUCTES_FISICS.IDProd
+        and TAGS_PRODUCTES_FISICS.IDTag = TAGS.IDTag
         and TAGS.Tag in (?)',[$tag1]);
         return $data;
     }
 
     public function getDigitalTags(Request $request, $tag1, $tag2){
-        $data=DB::select('select distinct PRODUCTES_DIGITALS.* from PRODUCTES_DIGITALS,TAGS,TAGS_PRODUCTES_DIGITALS 
-        where PRODUCTES_DIGITALS.IDProd_Digital = TAGS_PRODUCTES_DIGITALS.IDProd 
-        and TAGS_PRODUCTES_DIGITALS.IDTag = TAGS.IDTag 
+        $data=DB::select('select distinct PRODUCTES_DIGITALS.* from PRODUCTES_DIGITALS,TAGS,TAGS_PRODUCTES_DIGITALS
+        where PRODUCTES_DIGITALS.IDProd_Digital = TAGS_PRODUCTES_DIGITALS.IDProd
+        and TAGS_PRODUCTES_DIGITALS.IDTag = TAGS.IDTag
         and TAGS.Tag in (?,?)',[$tag1,$tag2]);
         return $data;
     }
 
     public function getFisicalTags(Request $request, $tag1, $tag2){
-        $data=DB::select('select distinct PRODUCTES_FISICS.* from PRODUCTES_FISICS,TAGS,TAGS_PRODUCTES_FISICS 
-        where PRODUCTES_FISICS.IDProd_Fisic = TAGS_PRODUCTES_FISICS.IDProd 
-        and TAGS_PRODUCTES_FISICS.IDTag = TAGS.IDTag 
+        $data=DB::select('select distinct PRODUCTES_FISICS.* from PRODUCTES_FISICS,TAGS,TAGS_PRODUCTES_FISICS
+        where PRODUCTES_FISICS.IDProd_Fisic = TAGS_PRODUCTES_FISICS.IDProd
+        and TAGS_PRODUCTES_FISICS.IDTag = TAGS.IDTag
         and TAGS.Tag in (?,?)',[$tag1,$tag2]);
         return $data;
     }
@@ -178,7 +178,14 @@ class UserController extends Controller
             return $data;
         }
     }
-    
+
+    public function getLatestNews(Request $request){
+        $data=DB::select('SELECT a.* FROM NOTICIES AS a JOIN (SELECT DISTINCT Data FROM NOTICIES ORDER BY Data DESC LIMIT 4) AS b ON a.Data = b.Data ORDER BY Data DESC ');
+        if(count($data) > 0){
+            return $data;
+        }
+    }
+
     public function uploadFile(Request $request, $text1, $text2, $categoria, $titol, $resum, $imatgePortada, $imatgeMitg){
         $data=DB::table('NOTICIES')->insert([
             'Text1'=>$text1,
@@ -190,7 +197,7 @@ class UserController extends Controller
             'ImatgeMitg'=>$imatgeMitg
         ]);
     }
-    
+
     public function uploadProductFisic(Request $request, $nom, $descripcio, $dExtensa, $imatge, $imatgeGallery, $price){
         $data=DB::table('PRODUCTES_FISICS')->insert([
             'Producte'=>$nom,
