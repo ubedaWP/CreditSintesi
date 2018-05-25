@@ -12,6 +12,7 @@ import { DomSanitizer, SafeHtml, SafeStyle, SafeScript, SafeUrl, SafeResourceUrl
 })
 export class MediaComponent implements OnInit {
 
+<<<<<<< HEAD
 
   /**
    * @property
@@ -23,6 +24,12 @@ export class MediaComponent implements OnInit {
    * @param sanitizer 
    */
   constructor(private sanitizer: DomSanitizer) { }
+=======
+  images;
+  videos;
+
+constructor(private sanitizer: DomSanitizer) { }
+>>>>>>> 6cf69b111be72582d1f366f396631304a8d9a27d
 
   /**
    * Funció que inicialitza l'array d'imatges.
@@ -43,6 +50,4 @@ export class MediaComponent implements OnInit {
       {url: 'https://images3.alphacoders.com/159/159225.jpg'},
     ]
   }
-  
-
 }
