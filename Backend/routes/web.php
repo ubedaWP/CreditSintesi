@@ -41,6 +41,7 @@ Route::group(['middleware'=>'cors'], function(){
     Route::get('/fisicalTags={tag1}/{tag2}', 'UserController@getFisicalTags');
     Route::get('/newsCategory={categoria}', 'UserController@getNewsData');
     Route::get('/news/Id={id}', 'UserController@getNewsById');
+    Route::get('/latestNews','UserController@getLatestNews');
     Route::get('/addNew/{text1}/{text2}/{categoria}/{titol}/{resum}/{imatgePortada}/{imatgeMitg}', 'UserController@uploadFile');
     Route::get('/addProducteFisic/{nom}/{descripcio}/{dExtensa}/{imatge}/{imatgeGallery}/{preu}','UserController@uploadProductFisic');
     Route::get('/addProducteDigital/{nom}/{descripcio}/{dExtensa}/{imatge}/{imatgeGallery}/{preu}','UserController@uploadProductDigital');

@@ -1,0 +1,43 @@
+<!--Footer-->
+<footer class="page-footer mdb-color text-center text-md-left pt-4 mt-4">
+
+    <!--Footer Links-->
+    <div class="container">
+        <div class="row">
+          <div class="col-sm-6 sampleText">Aquesta pàgina està feta gràcies a l'ajuda de</div>
+          <div class="col-sm-2"><img class="imatgeLogo" src="{{angularLogoRoute}}" alt="AngularLogo"></div>
+          <div class="col-sm-2"><img class="imatgeLogo" src="{{laravelLogoRoute}}" alt="LaravelLogo"></div>
+          <div class="col-sm-2"><img class="imatgeLogo" src="{{mdbootstrapLogoRoute}}" alt="MDBootstrapLogo"></div>
+        </div>
+    </div>
+    <!--/.Footer Links-->
+
+    <hr>
+
+    <!--Call to action-->
+    <div *ngIf="!isOn" class="call-to-action text-center py-3 register">
+        <ul class="list-unstyled list-inline">
+            <li class="list-inline-item">
+                <h5>Encara no tens un compte?</h5>
+            </li>
+            <li class="list-inline-item">
+                <a href="" class="btn btn-danger waves-light btn-rounded" mdbWavesEffect>Registra ' t</a>
+            </li>
+        </ul>
+    </div>
+    <!--/.Call to action-->
+
+    <hr>
+
+    <!--Copyright-->
+    <div class="footer-copyright text-center py-3">
+        <div class="container-fluid copy">
+            © 2018 Copyright:
+            DAVID ÚBEDA I GUILLEM VIDAL
+        </div>
+    </div>
+    <!--/.Copyright-->
+
+</footer>
+<!--/.Footer-->
+                      

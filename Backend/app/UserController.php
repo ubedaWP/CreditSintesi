@@ -172,6 +172,14 @@ class UserController extends Controller
         }
     }
 
+    public function getLatestNews(Request $request){
+        $data=DB::select('select a.* from NOTICIES as a join (select distinct Data from 
+        NOTICIES order by Data desc limit 4) as b on a.Data = b.Data order by Data desc ');
+        if(count($data) > 0){
+            return $data;
+        }
+    }
+
     public function getNewsById(Request $request, $id){
         $data=DB::select('select * from NOTICIES where IDNot = ?', [$id]);
         if(count($data) > 0){

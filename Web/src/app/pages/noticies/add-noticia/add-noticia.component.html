@@ -1,0 +1,38 @@
+<div class="container">
+    <div class="row">
+        <div class="col-sm-12">
+            <h1>REGISTRE UNA NOVA NOTICIA</h1><br>
+            <mat-form-field class="example-full-width">
+                <input matInput placeholder="Títol de la Noticia" value="" [formControl]="titol" required>
+                <mat-error *ngIf="text1.invalid">{{getErrorMessageText()}}</mat-error>
+            </mat-form-field><br><br>
+            <mat-form-field class="example-full-width">
+                <textarea matInput placeholder="Text principal de la Noticia" [formControl]="text1" required></textarea>
+                <mat-error *ngIf="text1.invalid">{{getErrorMessageText()}}</mat-error>
+            </mat-form-field><br><br>
+            <mat-form-field class="example-full-width">
+                <textarea matInput placeholder="Text secundari de la Noticia" [formControl]="text2" required></textarea>
+                <mat-error *ngIf="text2.invalid">{{getErrorMessageText()}}</mat-error>
+            </mat-form-field><br><br>
+            <mat-form-field class="example-full-width">
+                <textarea matInput placeholder="Resum de la Noticia" [formControl]="resum" required></textarea>
+                <mat-error *ngIf="resum.invalid">{{getErrorMessageText()}}</mat-error>
+            </mat-form-field><br><br>
+            <mat-form-field>
+                <mat-select placeholder="Categoria" [formControl]="categoria">
+                  <mat-option *ngFor="let category of categories" [value]="category">
+                    {{category}}
+                  </mat-option>
+                </mat-select>
+            </mat-form-field><br><br>
+            <label>Imatge per a la Portada</label>
+            <input type="file" (change)="getImatgePortada($event)"><br><br>
+            <label>Imatge per a la Noticia</label>
+            <input type="file" (change)="getImatgeMitg($event)"><br><br>
+            <button type="button" class="btn btn-outline-default" mdbWavesEffect (click)="addNew()">Afegir Noticia</button>
+        </div>
+    </div>
+</div>
+
+<!-- MODALS -->
+<swal #Afegit title="Perfecte!" text="Noticia afegida a la botiga amb Èxit" type="success"></swal>

@@ -1,0 +1,64 @@
+<div class="container">
+  <div class="row">
+    <div class="col-sm-1">&nbsp;</div>
+    <div class="col-sm-10 titolRegistre">
+     <h1>REGISTRE D'USUARI</h1>
+     <br><br><br>
+     <mat-form-field>
+      <input matInput placeholder="Nom d'Usuari" [formControl]="user" required>
+      <mat-error *ngIf="user.invalid">{{getErrorMessageUser()}}</mat-error>
+    </mat-form-field>
+    <mat-form-field>
+      <input matInput placeholder="Contrasenya" [formControl]="password1" [type]="hide ? 'password' : 'text'" required>
+      <mat-icon matSuffix (click)="hide = !hide">{{hide ? 'visibility' : 'visibility_off'}}</mat-icon>
+      <mat-error *ngIf="password1.invalid">{{getErrorMessageUser()}}</mat-error>
+    </mat-form-field>
+    <mat-form-field>
+      <input matInput placeholder="Confirma la contrasenya" [formControl]="password2" [type]="hide1 ? 'password' : 'text'" required>
+      <mat-icon matSuffix (click)="hide1 = !hide1">{{hide1 ? 'visibility' : 'visibility_off'}}</mat-icon>
+      <mat-error *ngIf="password2.invalid">{{getErrorMessageUser()}}</mat-error>
+    </mat-form-field>
+    <mat-form-field>
+      <input matInput placeholder="Enter your email" [formControl]="email" required>
+      <mat-error *ngIf="email.invalid">{{getErrorMessageEmail()}}</mat-error>
+    </mat-form-field>
+    <mat-form-field>
+      <input matInput placeholder="Nom" [formControl]="name" required>
+      <mat-error *ngIf="name.invalid">{{getErrorMessageUser()}}</mat-error>
+    </mat-form-field>
+    <mat-form-field>
+      <input matInput [matDatepicker]="picker" placeholder="Data de Naixament" [formControl]="age">
+      <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+      <mat-datepicker #picker></mat-datepicker>
+      <mat-error *ngIf="age.invalid">{{getErrorMessageUser()}}</mat-error>
+    </mat-form-field>
+    <mat-form-field>
+       <mat-select placeholder="Província de Residència" [formControl]="state">
+        <mat-option *ngFor="let state of states" [value]="state">
+          {{ state }}
+        </mat-option>
+      </mat-select>
+      <mat-error *ngIf="age.invalid">{{getErrorMessageUser()}}</mat-error>
+    </mat-form-field>       
+    <mat-form-field>
+      <input matInput placeholder="NIF" [formControl]="nif" required>
+      <mat-error *ngIf="nif.invalid">{{getErrorMessageUser()}}</mat-error>
+    </mat-form-field>
+    <br><br>
+    <button mat-button class="botoRegistre" (click)="getFormData()">REGISTRE'T</button><br><br>
+    </div>
+    <div class="col-sm-1">&nbsp;</div>
+  </div>
+  <div class="row">
+    &nbsp;
+  </div>
+</div>
+
+<!-- MODALS -->
+<swal #ErrorRegistre title="Error" text="Alguns dels camps és incorrecte o està buit" type="error"></swal>
+<swal #ErrorPasswords title="Error" text="Les contrasenys son diferents, han de ser iguals" type="error"></swal>
+<swal #ErrorPasswordsLongitud title="Error Contrasenya" text="Una de les contrasenyes no té com a mínim 8 caràcters" type="error"></swal>
+<swal #ErrorNif title="Error NIF" text="El NIF ha de tenir com a mínim 9 caràcters, incloent la lletra" type="error"></swal>
+<swal #ErrorUserExists title="Error Usuari" text="Ja existeix un USUARI amb aquest nom" type="error"></swal>
+<swal #ErrorEmailExists title="Error Email" text="Ja hi ha un USUARI registrat amb aquest EMAIL" type="error"></swal>
+<swal #RegistreValid title="Perfecte!" text="Felicitats! T'has registrat a la pàgina amb èxit" type="success"></swal>
