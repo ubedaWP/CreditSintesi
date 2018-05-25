@@ -187,13 +187,6 @@ class UserController extends Controller
         }
     }
 
-    public function getLatestNews(Request $request){
-        $data=DB::select('SELECT a.* FROM NOTICIES AS a JOIN (SELECT DISTINCT Data FROM NOTICIES ORDER BY Data DESC LIMIT 4) AS b ON a.Data = b.Data ORDER BY Data DESC ');
-        if(count($data) > 0){
-            return $data;
-        }
-    }
-
     public function uploadFile(Request $request, $text1, $text2, $categoria, $titol, $resum, $imatgePortada, $imatgeMitg){
         $data=DB::table('NOTICIES')->insert([
             'Text1'=>$text1,
