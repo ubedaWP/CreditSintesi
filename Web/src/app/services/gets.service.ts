@@ -186,13 +186,8 @@ export class GetsService {
   getNoticiaId(id: string): any{
     return this.httpClient.get(this.dataService.baseIP + "news/Id=" + id);
   }
-<<<<<<< HEAD
 
   getLatestNews(){
-=======
-  getLatestNews(){
-    //console.log(url);
->>>>>>> 6cf69b111be72582d1f366f396631304a8d9a27d
     const url= this.dataService.baseIP + "latestNews";
     return this.httpClient.get(url);
   }
