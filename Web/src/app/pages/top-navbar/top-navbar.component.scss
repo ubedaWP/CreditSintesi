@@ -1,0 +1,43 @@
+.navbar{
+    background-image:url('../../../assets/navbarBackground.jpg');
+    height: 20%;
+    width: 100%;
+}
+.logo{
+    height: 100px;
+}
+.btn-group{
+    background-color: transparent;
+}
+.avatar{
+    margin-left: 80%;
+    height: 10%;
+    width: 10%;
+}
+.mat-button:hover{
+    color:black;
+    background-color:white;
+}
+.logoutIcon{
+    height: 50%;
+    width: 50%;
+}
+.cartImage{
+    width: 20%;
+    height: 20%;
+}
+.cartItem{
+    font-size: 10px;
+}
+.dropdown-menu{
+    width: 300%;
+}
+.ajustes{
+    width: 150%;
+}
+.dropdown-item:hover{
+    background-color:rgb(52, 100, 255);
+}
+.invoiceButton{
+    margin-top: 3%;
+}
